@@ -1,0 +1,3 @@
+test.md:1:4:Micllam.Terms:'ad hoc' for 'ad-hoc'
+test.md:1:17:Micllam.Terms:'opts in to' for 'opts into'
+test.md:1:46:Micllam.Terms:'signaller' for 'signaler'

@@ -1,0 +1,7 @@
+extends: existence
+message: 'No rhetorical questions'
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+scope: ~heading
+raw:
+  - '\?'

@@ -1,0 +1,7 @@
+extends: existence
+message: 'No "X, not Y", "rather than" or "instead of": ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:rather\sthan)|(?:instead\sof)|(?:,\snot\s)'

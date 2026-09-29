@@ -1,0 +1,7 @@
+extends: existence
+message: 'No "X is what does Y" cleft: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(is|are|was|were)\swhat\b)'

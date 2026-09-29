@@ -1,0 +1,7 @@
+extends: existence
+message: 'Delete outright: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#vocabulary
+ignorecase: true
+raw:
+  - '(?:\b(simply|easily|seamlessly|robust|powerful|comprehensive|performant)\b)|(?:\bin\s(conclusion|summary)\b)|(?:\bit\sis\sworth\snoting\b)|(?:\bgrab(s|bed|bing)?\b)|(?:\bspin(s|ning)?\sup\b)|(?:\bbaked\sin\b)|(?:\bchew(s|ing)?\sthrough\b)|(?:\bthundering\sherd\b)|(?:\b(tapestry|testament|synergy|synergies)\b)'

@@ -1,0 +1,7 @@
+extends: existence
+message: 'No clause that spells out what a caller can therefore do: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:,\sso\s(that\s)?(a|an|the|any|each|every)\s[a-z]+\scan\b)'

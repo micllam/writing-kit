@@ -1,0 +1,7 @@
+extends: existence
+message: 'Modals are can, will and must: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(should|would|may|might|could)\b)'

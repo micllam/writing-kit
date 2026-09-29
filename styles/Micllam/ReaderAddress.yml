@@ -1,0 +1,7 @@
+extends: existence
+message: 'Do not address the reader: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(you|your|yours|yourself)\b)'

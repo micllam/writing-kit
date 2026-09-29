@@ -1,0 +1,33 @@
+// Reports a blank line between two entries of a list. A heading, a
+// paragraph or a code fence ends a list, and an indented line continues the
+// entry before it.
+text := import("text")
+matches := []
+
+lines := text.split(scope, "\n")
+offset := 0
+in_item := false
+blank := 0
+fence := false
+for line in lines {
+  start := offset
+  offset += len(line) + 1
+  if text.re_match("^[ \t]*```", line) {
+    fence = !fence
+    in_item = false
+    blank = 0
+  } else if fence {
+    // A line of a code block.
+  } else if text.re_match(`^[ \t]*$`, line) {
+    blank += 1
+  } else if text.re_match(`^[ \t]*([-*]|[0-9]+\.) `, line) {
+    if in_item && blank > 0 { matches = append(matches, {begin: start, end: start + len(line)}) }
+    in_item = true
+    blank = 0
+  } else if text.re_match(`^[ \t]+[^ \t]`, line) && in_item {
+    blank = 0
+  } else {
+    in_item = false
+    blank = 0
+  }
+}

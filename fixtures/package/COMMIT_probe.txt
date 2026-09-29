@@ -1,0 +1,3 @@
+queue: add retries.
+
+The worker should retry a task, since the lease has been extended.

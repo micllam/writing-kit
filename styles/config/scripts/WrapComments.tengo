@@ -1,0 +1,73 @@
+mode := "comment"
+// Reports prose lines over 80 columns and ragged lines: lines with room for
+// the first word of the next line of their paragraph. The variable `mode`
+// selects Markdown prose ("md") or source comments ("comment").
+text := import("text")
+matches := []
+
+// The number of characters: each non-ASCII character counts as one.
+width := func(s) { return len(text.re_replace("[^\\x00-\\x7F]", s, "x")) }
+
+strip := func(line) {
+  return text.re_replace(`^[ \t]*(//[/!]?|#)? ?`, line, "")
+}
+longest_span := func(line) {
+  best := 0
+  found := text.re_find("`[^`]+`", line, -1)
+  if found == undefined { return 0 }
+  for m in found {
+    n := width(m[0].text)
+    if n > best { best = n }
+  }
+  return best
+}
+first_token := func(t) {
+  m := text.re_find("^\\(?`[^`]+`[).,;:]*", t, 1)
+  if m == undefined { m = text.re_find(`^[^ ]+`, t, 1) }
+  if m == undefined { return "" }
+  return m[0][0].text
+}
+
+fence := false
+front := false
+is_prose := func(i, line) {
+  l := text.trim_left(line, " \t")
+  if mode == "comment" {
+    return text.re_match(`^(//[/!]?|#)( |$)`, l) && !text.re_match("^(//[/!]?|#) *(```|# |use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
+  }
+  if i == 0 && l == "---" {
+    front = true
+  } else if front && l == "---" {
+    front = false
+    return false
+  }
+  if front { return false }
+  if text.has_prefix(l, "```") { fence = !fence }
+  return !fence && !text.re_match("^(\\||\\[|```|[a-z-]+ = |$)", l)
+}
+
+lines := text.split(scope, "\n")
+offset := 0
+prev_prose := false
+prev_len := 0
+prev_text := ""
+prev_off := 0
+prev_bytes := 0
+for i, line in lines {
+  prose := is_prose(i, line)
+  t := strip(line)
+  cols := width(line)
+  if prose && cols > 80 && !text.re_match(`https?://`, t) && longest_span(t) < 42 {
+    matches = append(matches, {begin: offset, end: offset + len(line), message: "Line over 80 columns"})
+  }
+  tok := first_token(t)
+  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(]", t) && prev_len + 1 + width(tok) <= 80 {
+    matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Ragged line: room for the next line's first word"})
+  }
+  prev_prose = prose && t != ""
+  prev_len = cols
+  prev_text = t
+  prev_off = offset
+  prev_bytes = len(line)
+  offset += len(line) + 1
+}

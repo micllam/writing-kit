@@ -1,0 +1,2 @@
+test.md:1:19:Micllam.CallerConsequence:No clause that spells out what a caller can therefore do: ', so a caller can'
+test.md:3:19:Micllam.CallerConsequence:No clause that spells out what a caller can therefore do: ', so that the reader can'

@@ -1,0 +1,7 @@
+extends: existence
+message: 'No contractions: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b[a-z]+n[''’]t\b)|(?:\b(it|that|there|here|what|where|who|let|i|you|we|they|he|she)[''’](s|re|ll|d|ve|m)\b)'

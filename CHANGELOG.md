@@ -1,0 +1,16 @@
+# Changelog
+
+All notable changes to the `Micllam` Vale package will be documented in this
+file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- The Vale package `Micllam` checks the writing style in `docs/writing-style.md`
+  in Markdown, plain text, Rust, shell, TOML, Python and commit message files:
+  excluded words with their replacements, sentence forms, British spelling, line
+  wrap, CHANGELOG lists and commit subjects. It requires Vale 3.23.0 or later.

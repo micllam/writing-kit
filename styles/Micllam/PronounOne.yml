@@ -1,0 +1,7 @@
+extends: existence
+message: 'No pronoun "one" for a type or a value: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(takes|take|is|are|with|to|has|have)\sone(\s(in|at|per|for|as)\b|[.,;:)]|$))'

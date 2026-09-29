@@ -1,0 +1,6 @@
+test.md:1:12:Micllam.DeleteOutright:Delete outright: 'simply'
+test.md:3:14:Micllam.DeleteOutright:Delete outright: 'robust'
+test.md:5:24:Micllam.DeleteOutright:Delete outright: 'seamlessly'
+test.md:7:1:Micllam.DeleteOutright:Delete outright: 'It is worth noting'
+test.md:9:10:Micllam.DeleteOutright:Delete outright: 'spins up'
+test.md:11:20:Micllam.DeleteOutright:Delete outright: 'thundering herd'

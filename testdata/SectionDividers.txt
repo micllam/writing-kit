@@ -1,0 +1,5 @@
+test.rs:1:1:Micllam.SectionDividers:No section-divider comments: '// ----------------------------------------------------------------------------'
+test.rs:3:1:Micllam.SectionDividers:No section-divider comments: '// ================================================================'
+test.rs:4:1:Micllam.SectionDividers:No section-divider comments: '//! ═══════════════'
+test.rs:5:1:Micllam.SectionDividers:No section-divider comments: '    // ----'
+test.sh:2:1:Micllam.SectionDividers:No section-divider comments: '# =========='

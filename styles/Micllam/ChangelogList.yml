@@ -1,0 +1,6 @@
+extends: script
+message: "No blank line between CHANGELOG entries"
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#changelog-entries
+scope: raw
+script: ChangelogList.tengo

@@ -1,0 +1,7 @@
+extends: existence
+message: 'A pointer identifies its target, never "above" or "below": ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+ignorecase: true
+raw:
+  - '(?:\b(see|described|shown|listed|mentioned|defined|noted|explained|discussed|given|stated)\s(above|below)\b)|(?:\b(sections?|tables?|examples?|lists?|code|snippets?|diagrams?|figures?|paragraphs?|steps?|commands?|rules?|notes?)\s(above|below)\b)'

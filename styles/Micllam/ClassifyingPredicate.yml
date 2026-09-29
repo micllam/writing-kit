@@ -1,0 +1,7 @@
+extends: existence
+message: 'No classifying predicate: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(is|are|was|were)\san?\s(state|case|condition|situation|scenario|combination|configuration)\s(that|where|which|in\swhich)\b)'

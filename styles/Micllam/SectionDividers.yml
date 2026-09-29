@@ -1,0 +1,7 @@
+extends: existence
+message: 'No section-divider comments: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+scope: raw
+raw:
+  - '(?m)^[ \t]*(//[/!]?|#)[ \t]*[-=*#═─━]{4,}[ \t]*$'

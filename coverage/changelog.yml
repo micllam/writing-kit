@@ -1,0 +1,7 @@
+# CHANGELOG entries
+
+public-surface-only: false
+change-and-migration: false
+relative-to-last-release: false
+no-blank-line-between-bullets: true # ChangelogList.yml
+append-at-end: false

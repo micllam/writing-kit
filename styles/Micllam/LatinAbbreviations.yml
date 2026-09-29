@@ -1,0 +1,7 @@
+extends: existence
+message: 'No Latin abbreviations: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+ignorecase: true
+raw:
+  - '(?:e\.g\.)|(?:i\.e\.)|(?:etc\.)'

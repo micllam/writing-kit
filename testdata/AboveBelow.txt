@@ -1,0 +1,2 @@
+test.md:1:32:Micllam.AboveBelow:A pointer identifies its target, never "above" or "below": 'described above'
+test.md:3:5:Micllam.AboveBelow:A pointer identifies its target, never "above" or "below": 'table below'

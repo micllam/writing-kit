@@ -1,0 +1,7 @@
+extends: existence
+message: 'No "-ing" clause after a comma: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:,\s(making|naming|allowing|enabling|leaving|keeping|using))'

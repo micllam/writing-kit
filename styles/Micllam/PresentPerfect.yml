@@ -1,0 +1,7 @@
+extends: existence
+message: 'Simple tenses, no present perfect: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(has|have|had)\s(been|[a-z]+ed|done|gone|sent|written|run|built|made|taken|given|seen|become|begun|grown|kept|left|lost|put|shown|won|found|held|met|paid|said|sold|told|thought|brought|bought|caught|taught|fed|led)\b)'

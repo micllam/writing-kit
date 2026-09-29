@@ -1,0 +1,13 @@
+# Content
+
+essential-only: false
+formal-register: false
+no-rationale-in-comments: false
+current-behaviour: false
+cross-references: false
+no-pointer-above-below: true # AboveBelow.yml
+concept-terms: false
+no-reader-psychology: true # ReaderPsychology.yml RhetoricalQuestions.yml
+architectural-categories: false
+no-section-divider-comments: true # SectionDividers.yml
+no-title-comments: true # TitleComments.yml

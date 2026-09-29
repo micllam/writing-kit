@@ -1,0 +1,6 @@
+extends: script
+message: "Line length and wrap"
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#punctuation-spelling-and-formatting
+scope: raw
+script: WrapMarkdown.tengo

@@ -1,0 +1,7 @@
+extends: existence
+message: 'No serial comma: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#punctuation-spelling-and-formatting
+ignorecase: true
+raw:
+  - '(?:,\s[a-z][a-z\s-]{0,30},\s(and|or)\s)'

@@ -1,0 +1,2 @@
+queue: add retries
+The worker retries a task once.

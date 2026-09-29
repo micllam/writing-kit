@@ -1,0 +1,4 @@
+test.md:1:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
+test.md:2:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
+test.md:5:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
+test.md:8:1:Micllam.WrapMarkdown:Line over 80 columns

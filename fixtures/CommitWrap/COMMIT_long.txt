@@ -1,0 +1,4 @@
+queue: add retries to the worker loop for every task that fails with a transient error
+
+The worker retries a task once, because a transient error clears on the next
+attempt in most cases, and a second failure dead-letters the task without delay.

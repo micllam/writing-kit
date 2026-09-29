@@ -1,0 +1,13 @@
+# Punctuation, spelling and formatting
+
+no-em-dashes-and-no-semicolons: true # Semicolons.yml EmDashes.yml
+no-serial-comma: true # SerialComma.yml
+no-latin-abbreviations: true # LatinAbbreviations.yml
+british-spelling: true # BritishSpelling.yml
+ad-hoc-and-opt-in: true # Terms.yml
+bold-and-emoji: false
+vertical-lists: false
+short-headings: false
+warning-order: false
+no-rewording-of-code: false
+line-wrap: true # WrapMarkdown.yml WrapComments.yml

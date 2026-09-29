@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: Install Vale
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VALE_VERSION=$(jq -r .vale_version meta.json | sed 's/^>=//')
+          archive="vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+          gh release download "v${VALE_VERSION}" \
+            --repo vale-cli/vale \
+            --pattern "$archive" \
+            --pattern "vale_${VALE_VERSION}_checksums.txt" \
+            --dir "$RUNNER_TEMP"
+          cd "$RUNNER_TEMP"
+          sha256sum --check --ignore-missing "vale_${VALE_VERSION}_checksums.txt"
+          tar -xzf "$archive" vale
+          sudo install vale /usr/local/bin/vale
+
+      - name: Run the Go tests
+        run: go test ./...
+
+      - name: Test the package
+        run: ./scripts/test.sh

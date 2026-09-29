@@ -1,0 +1,8 @@
+# Commit messages
+
+subject-style: false
+subject-length: true # CommitWrap.yml
+subject-full-stop: true # CommitSubject.yml
+body-content: false
+subject-blank-line: true # CommitSubject.yml
+body-wrap: true # CommitWrap.yml

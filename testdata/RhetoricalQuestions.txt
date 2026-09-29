@@ -1,0 +1,2 @@
+test.md:3:26:Micllam.RhetoricalQuestions:No rhetorical questions
+test.md:5:23:Micllam.RhetoricalQuestions:No rhetorical questions

@@ -1,0 +1,6 @@
+extends: script
+message: "No comment that only titles a group"
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+scope: raw
+script: TitleComments.tengo

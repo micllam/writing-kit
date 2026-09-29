@@ -1,0 +1,7 @@
+extends: existence
+message: 'Commit message: line over 72 columns'
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#commit-messages
+scope: raw
+raw:
+  - '(?m)^.{73,}$'

@@ -1,0 +1,25 @@
+extends: substitution
+message: 'British spelling: ''%s'' for ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#punctuation-spelling-and-formatting
+ignorecase: true
+swap:
+  '(behavio|colo|favo|flavo|hono|labo|neighbo|rumo|vapo)r(s?)': '$1ur$2'
+  '(catalog)(s?)': '$1ue$2'
+  '(analog)': '$1ue'
+  '(cent|met|lit)er(s?)': '$1re$2'
+  '(cent)ered': '$1red'
+  '(analy)z(e[sd]?|ing|ers?)': '$1s$2'
+  '(amorti|authori|capitali|categori|customi|finali|initiali|maximi|minimi|normali|optimi|organi|prioriti|randomi|reali|recogni|saniti|standardi|summari|synchroni|visuali)z(e[sd]?|ing|ation|ations)': '$1s$2'
+  '(cancel|label|model|signal|travel)(ed|ing)': '$1l$2'
+  '(cancel)ation(s?)': '$1lation$2'
+  '(defen|offen|preten)se(s?)': '$1ce$2'
+  '(fulfil)l(s?)': '$1$2'
+  '(fulfil)lment': '$1ment'
+  '(enrol)l(s?)': '$1$2'
+  '(enrol)lment': '$1ment'
+  '(acknowledg|judg)ment(s?)': '$1ement$2'
+  '(ag)ing': '$1eing'
+  '(gr)ay': '$1ey'
+  '(siz|lik)able': '$1eable'
+  'skep(tic|tical|ticism)': 'scep$1'

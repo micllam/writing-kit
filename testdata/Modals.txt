@@ -1,0 +1,6 @@
+test.md:1:12:Micllam.Modals:Modals are can, will and must: 'should'
+test.md:3:12:Micllam.Modals:Modals are can, will and must: 'may'
+test.md:5:10:Micllam.Modals:Modals are can, will and must: 'might'
+test.md:7:14:Micllam.Modals:Modals are can, will and must: 'could'
+test.md:9:6:Micllam.Modals:Modals are can, will and must: 'would'
+test.md:13:31:Micllam.Modals:Modals are can, will and must: 'would'

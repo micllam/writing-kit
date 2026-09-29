@@ -1,0 +1,5 @@
+test.md:1:12:Micllam.PresentPerfect:Simple tenses, no present perfect: 'has been'
+test.md:3:12:Micllam.PresentPerfect:Simple tenses, no present perfect: 'has been'
+test.md:6:11:Micllam.PresentPerfect:Simple tenses, no present perfect: 'has expired'
+test.md:6:35:Micllam.PresentPerfect:Simple tenses, no present perfect: 'had been'
+test.md:6:63:Micllam.PresentPerfect:Simple tenses, no present perfect: 'has sent'

@@ -1,0 +1,7 @@
+extends: existence
+message: 'Commit subject: one line without a full stop, then a blank line'
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#commit-messages
+scope: raw
+raw:
+  - '(?:\A[^\n]*\.(?:\r?\n|\z))|(?:\A[^\n]+\r?\n(?!\r?\n)[^\n])'

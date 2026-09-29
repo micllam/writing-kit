@@ -1,0 +1,1 @@
+CHANGELOG.md:7:1:Micllam.ChangelogList:No blank line between CHANGELOG entries

@@ -1,0 +1,1 @@
+test.md:1:15:Micllam.PronounOne:No pronoun "one" for a type or a value: 'takes one as'

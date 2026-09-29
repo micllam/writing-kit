@@ -1,0 +1,2 @@
+test.md:1:29:Micllam.LatinAbbreviations:No Latin abbreviations: 'e.g.'
+test.md:3:23:Micllam.LatinAbbreviations:No Latin abbreviations: 'i.e.'

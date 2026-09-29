@@ -1,0 +1,6 @@
+extends: existence
+message: 'No semicolons'
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#punctuation-spelling-and-formatting
+raw:
+  - ';'

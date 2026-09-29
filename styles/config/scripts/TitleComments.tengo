@@ -1,0 +1,36 @@
+// Reports a `//` comment that only titles a group of items: a comment of a
+// single line, with a capital first letter, made of letters, spaces and
+// commas, without a full stop. A line with a comment line before it or after
+// it belongs to a wrapped comment.
+text := import("text")
+matches := []
+
+// The number of characters: each non-ASCII character counts as one.
+width := func(s) { return len(text.re_replace("[^\\x00-\\x7F]", s, "x")) }
+
+is_comment := func(line) { return text.re_match(`^[ \t]*//( |$)`, line) }
+is_title := func(line) {
+  if !text.re_match(`^[ \t]*// [A-Z][A-Za-z ,]+$`, line) { return false }
+  n := width(text.re_replace(`^[ \t]*// `, line, ""))
+  return n >= 3 && n <= 71
+}
+
+lines := text.split(scope, "\n")
+offset := 0
+previous := false
+cand := -1
+cand_len := 0
+for line in lines {
+  comment := is_comment(line)
+  if cand >= 0 && !comment {
+    matches = append(matches, {begin: cand, end: cand + cand_len})
+  }
+  cand = -1
+  if !previous && is_title(line) {
+    cand = offset
+    cand_len = len(line)
+  }
+  previous = comment
+  offset += len(line) + 1
+}
+if cand >= 0 { matches = append(matches, {begin: cand, end: cand + cand_len}) }

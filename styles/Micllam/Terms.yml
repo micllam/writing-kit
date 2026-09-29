@@ -1,0 +1,9 @@
+extends: substitution
+message: '''%s'' for ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#punctuation-spelling-and-formatting
+ignorecase: true
+swap:
+  'ad-hoc': 'ad hoc'
+  '(opt(s|ed|ing)?) into': '$1 in to'
+  '(signal)er(s?)': '$1ler$2'

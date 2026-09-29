@@ -1,0 +1,3 @@
+COMMIT_long.txt:1:1:Micllam.CommitWrap:Commit message: line over 72 columns
+COMMIT_long.txt:3:1:Micllam.CommitWrap:Commit message: line over 72 columns
+COMMIT_long.txt:4:1:Micllam.CommitWrap:Commit message: line over 72 columns

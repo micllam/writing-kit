@@ -1,0 +1,7 @@
+extends: existence
+message: 'No possessive predicate: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
+ignorecase: true
+raw:
+  - '(?:\b(is|are)\sits\b)'

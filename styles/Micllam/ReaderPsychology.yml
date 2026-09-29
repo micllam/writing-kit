@@ -1,0 +1,7 @@
+extends: existence
+message: 'No reader-psychology narration: ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#content
+ignorecase: true
+raw:
+  - '(?:\bit\sis\stempting\sto\b)|(?:\bnotice\sthat\b)|(?:\bworth\sinternali[sz]ing\b)'

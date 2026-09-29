@@ -1,0 +1,6 @@
+#!/bin/sh
+# The worker should retry the task.
+#
+# The worker retries each failed task until the lease expires, and the queue requeues it.
+# ==========
+echo done
