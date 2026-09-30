@@ -15,7 +15,7 @@ swap:
   'gat(ed|es|ing) on': 'hold until, waits for, conditional on'
   'since': 'because'
   'however': 'but'
-  '(need|needs|needed|have|has|had) to': 'an imperative, or "it is necessary to"'
+  '((?<!will )need|needs|needed|have|has|had) to': 'an imperative, "it is necessary to" or "will need to"'
   '(out from under|when in doubt)': 'state the literal effect or condition'
   'driv(e|es|en|ing)': 'runs, advances, sends, or state the action'
   'dies with': 'terminates when'

@@ -171,6 +171,8 @@ The queue name is unique.
 
 The caller needs to close the handle.
 
+A project that uses the entries will need to add a rule in its own style.
+
 The agent runs next to the server.
 
 The lock file is next to the data file.

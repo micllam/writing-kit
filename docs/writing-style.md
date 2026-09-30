@@ -90,9 +90,10 @@ match, and the files in `coverage/` list which ones.
   "should" becomes "must", and an optional "should" is deleted. "Would" appears
   only in a counterfactual with a stated condition ("Without the lock, two
   writers would overwrite each other"), never as a hedge.
-- State a requirement with "must" or "require", never with a plain present verb
-  ("a caller sets `timeout`"). When a type imposes the requirement, make the
-  type the subject ("`SubprocessParams` and `ShellParams` require `timeout`").
+- State a requirement with "must", "require" or "will need to", never with a
+  plain present verb ("a caller sets `timeout`"). When a type imposes the
+  requirement, make the type the subject ("`SubprocessParams` and `ShellParams`
+  require `timeout`").
 - A rejected design gets one counterfactual sentence, or a sentence that states
   what the design prevents ("The lock prevents two writers from overwriting each
   other"). A longer description of that design is in the present tense.
@@ -170,7 +171,7 @@ Avoid, and write instead:
 - gate, gated on (as a verb): hold until, waits for, conditional on. The noun
   compound (feature gate) is standard
 - since (meaning because): because. however: but. therefore: sparingly
-- need to, have to: an imperative, or "it is necessary to"
+- need to, have to: an imperative, "it is necessary to" or "will need to"
 - strand, out from under, when in doubt: state the literal effect or condition
 - drive, drives, driven, driving (of a loop, a test, time or a scenario): runs,
   advances, sends, or state the action
