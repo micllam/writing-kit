@@ -6,7 +6,6 @@ one-term-per-concept: false
 noun-chains: false
 holds-supplies-carries: true
 rides-in: true
-parked: true
 shape: true
 lands-on: true
 writes-the-store: true
@@ -25,7 +24,6 @@ hand-rolled: true
 stand-up: true
 hands-to: true
 mint: true
-make-up: true
 under-a-key: true
 serves-leaves-with: true
 harmless: true
@@ -34,10 +32,9 @@ behind-ahead-of: true
 proves: true
 finds-nothing: true
 dead: true
-stopped-beating: true
 cheap-expensive: true
 costs: false
-hot-path-retry-budget: true
+hot-path: true
 for-free-bolted-on: true
 is-noise-earns-its-keep: true
 dedupe-plumbing-impls: true
@@ -55,7 +52,6 @@ at-the-same: true
 born-births: true
 takes-off-reads-out-of: true
 keyed-by: true
-takes-back: true
 fits: true
 over: true
 leaves-behind: true
@@ -74,7 +70,6 @@ collapse: false
 flat-out: true
 knob: true
 cold-warm: true
-mailbox-terminal-prefix: true
 bag-nobody-stampede: true
 sweet-spot: true
 leverage-in-order-to: true

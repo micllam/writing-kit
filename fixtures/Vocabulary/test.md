@@ -67,8 +67,6 @@ The index serves diagnosis only.
 
 A second delivery is harmless.
 
-The worker stopped beating after the crash.
-
 The test drives the clock forward by one hour.
 
 The response echoes the request identifier.
@@ -81,6 +79,8 @@ The file backend fits a single-node deployment.
 
 The claim is over when the lease expires.
 
+The line is over 80 columns.
+
 The scan steps over a tombstone.
 
 The run goes past the timeout.
@@ -92,6 +92,10 @@ The index lives beside the data.
 The project uses a hand-rolled parser.
 
 The scheduler hands the job to a worker.
+
+The work is handed out at startup.
+
+On the other hand, the lock is held.
 
 The record holds the expiry of the lease.
 
@@ -139,8 +143,6 @@ Each contract has one locking test.
 
 The worker takes the lock before the write.
 
-Each worker has a mailbox in the store.
-
 The record is a bag of fields.
 
 Nobody reads the key after the commit.
@@ -161,8 +163,6 @@ A cold cache doubles the read count, and a warm start skips the load.
 
 The cache is cold after a restart.
 
-The scheduler runs the make-up firing after a restart.
-
 The service mints a token for each session.
 
 The request names the queue.
@@ -176,8 +176,6 @@ A project that uses the entries will need to add a rule in its own style.
 The agent runs next to the server.
 
 The lock file is next to the data file.
-
-The job is parked until the deadline.
 
 The shape of the record changes in the next release.
 
@@ -206,8 +204,6 @@ A crash can strand the lease.
 The queue survives a restart.
 
 If the design survives the review, merge it.
-
-The scheduler takes the job back after the deadline.
 
 The worker reads the deadline off the key.
 

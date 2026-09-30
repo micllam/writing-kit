@@ -158,7 +158,6 @@ Avoid, and write instead:
 
 - holds, supplies, carries, rides in, is carried in: contains, includes, is
   stored in, or name the field
-- parked: waiting, or "held in `scheduled`"
 - shape, shapes: pattern, form, model, variant
 - lands on, lands in: is written to, is recorded against
 - writes the store, reads the store (of a process, a writer or a command):
@@ -181,7 +180,6 @@ Avoid, and write instead:
   claim
 - mint, mints, minted (of a handle, a token or a value): constructs, creates,
   builds, or name the constructor
-- make-up (of a job or a firing): backfill, replayed
 - under (a key, a prefix, a tag), meaning stored at or keyed by: at, with,
   within, or name the key, as in "the record's key" or "stored at one key". The
   same for a key space ("the keys under it", "the keys under the prefix"): "the
@@ -206,12 +204,10 @@ Avoid, and write instead:
 - dead (of configuration, code, a value or an arm, as a metaphor): unreachable,
   unused, without effect, or state what it does not apply to. The dead-letter
   sense (a dead job, the dead set) stays
-- stopped beating, beats (of a heartbeat, as a verb): commits beats, stopped
-  committing beats. The noun, a beat, is the record and stays
 - cheap, expensive, keeps X cheap, costs X, pay a cost, tax (of an operation, a
   loss, a choice or a design): state the literal cost as a count of reads,
   writes, scans or lock holds, or name the operation or what is avoided
-- hot path: name the path. retry budget: attempt count reset
+- hot path: name the path
 - for free: by construction. bolted-on: separately maintained
 - is noise: is negligible. earns its keep, earns its place: is justified
 - dedupe: deduplicate. plumbing, machinery: mechanism, or name the components.
@@ -241,8 +237,6 @@ Avoid, and write instead:
 - takes X off, reads X off, reads X out of (a key, a record): parses X from,
   extracts X from, removes X from
 - keys by, keyed on, keyed by: uses X as its key
-- takes X back, taking back: ends the claim, ends the assignment, requeues, or
-  name the transition
 - fits (as a verb, of a choice or an option): is right when, is the correct
   choice, applies when
 - over (of a claim, a run or a delivery): ended, complete, finished
@@ -269,7 +263,6 @@ Avoid, and write instead:
 - collapse (of a metric): fall. flat out: as fast as possible
 - knob: parameter
 - cold, warm (of a cache): state the literal property
-- mailbox, pins, terminal prefix: name the literal storage, operation or prefix
 - bag: collection. nobody: no task. stampede: contend on
 - sweet spot, home ground: strongest fit
 - leverage, utilize, harness: use. in order to: to. prior to: before
