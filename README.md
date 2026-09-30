@@ -29,10 +29,12 @@ A project lists the package in its `.vale.ini`:
 
 ```ini
 StylesPath = .vale/styles
-Packages = https://github.com/micllam/writing-kit/releases/latest/download/Micllam.zip
+Packages = https://github.com/micllam/writing-kit/releases/download/v0.1.0/Micllam.zip
 ```
 
-Run `vale sync` after a clone and after a change to `Packages`. The
+Run `vale sync` after a clone and after a change to `Packages`. An upgrade of
+the package is a change to the version in `Packages`, and the section of
+`CHANGELOG.md` for the new version lists the changes to the rules. The
 configuration of the package selects the rules by file type:
 
 - Markdown: every rule, with lines wrapped at 80 columns. The list rule runs on
@@ -105,15 +107,17 @@ runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md` and
 `fixtures/package/`. Only this test reads the configuration of the package in
 `.vale.ini`. It fails when a valid fixture, the README or the CHANGELOG produces
 an alert, when the alerts of `fixtures/package/` differ from
-`fixtures/expected.txt` or when the README does not state the Vale version of
-`meta.json`. After a change to `.vale.ini`, the command `scripts/test.sh
---update` writes the new alerts to `fixtures/expected.txt`. The test requires
-`vale` and `zip`.
+`fixtures/expected.txt`, when the README does not state the Vale version of
+`meta.json` or when the `Packages` URL of the README does not have the version
+of the last section of `CHANGELOG.md`. After a change to `.vale.ini`, the
+command `scripts/test.sh --update` writes the new alerts to
+`fixtures/expected.txt`. The test requires `vale` and `zip`.
 
 ## Release
 
-A tag that starts with `v` runs the release workflow, which tests the package
-and attaches `Micllam.zip` to a GitHub release whose notes are the section of
-`CHANGELOG.md` for that version. The workflow fails without that section. An
-entry in `CHANGELOG.md` covers a change to the rules, the configuration, the
-style or the Vale requirement.
+The release commit adds the section of the version to `CHANGELOG.md` and sets
+the version in the `Packages` URL of this README. A tag that starts with `v`
+then runs the release workflow, which tests the package and attaches
+`Micllam.zip` to a GitHub release whose notes are that section. The workflow
+fails without the section. An entry in `CHANGELOG.md` covers a change to the
+rules, the configuration, the style or the Vale requirement.

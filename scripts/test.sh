@@ -2,8 +2,9 @@
 # Installs dist/Micllam.zip into a temporary project and runs it on the
 # fixtures. The files in fixtures/valid, README.md and CHANGELOG.md must not
 # produce an alert, the alerts of fixtures/package must equal
-# fixtures/expected.txt, and README.md must state the Vale version of meta.json.
-# With --update, the script writes the alerts of fixtures/package to
+# fixtures/expected.txt, and README.md must state the Vale version of meta.json
+# and the version of the last CHANGELOG.md section in its Packages URL. With
+# --update, the script writes the alerts of fixtures/package to
 # fixtures/expected.txt.
 set -eu
 
@@ -14,6 +15,11 @@ version=$(sed -n 's/.*"vale_version": ">=\([0-9.]*\)".*/\1/p' "$repo_dir/meta.js
 [ -n "$version" ] || { echo "meta.json: no vale_version" >&2; exit 1; }
 grep -q "Vale $version or later" "$repo_dir/README.md" \
   || { echo "README.md does not state Vale $version" >&2; exit 1; }
+
+release=$(sed -n 's/^## \[\([0-9][0-9.]*\)\].*/\1/p' "$repo_dir/CHANGELOG.md" | head -n 1)
+[ -n "$release" ] || { echo "CHANGELOG.md: no released version" >&2; exit 1; }
+grep -q "releases/download/v$release/Micllam.zip" "$repo_dir/README.md" \
+  || { echo "README.md does not list the package at v$release" >&2; exit 1; }
 
 test_dir=$(mktemp -d)
 trap 'rm -rf "$test_dir"' EXIT HUP INT TERM
