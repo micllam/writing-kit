@@ -33,7 +33,7 @@ swap:
   'prove[dsn]?': 'establishes, records, or state the observation'
   '(finds?|found|yields?) nothing': 'ended without a key, returned an empty page'
   'dead (configuration|code|value|field|arm|branch)': 'unreachable, unused, without effect, or state what it does not apply to'
-  '(cheap|expensive)': 'state the literal cost as a count of reads, writes, scans or lock holds'
+  '(cheap|expensive)': 'state the literal cost as a count of reads, writes, scans or lock acquisitions'
   'hot paths?': 'name the path'
   'load[- ]bearing': 'necessary, or state what depends on it'
   'for free': 'by construction'

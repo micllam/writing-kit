@@ -69,8 +69,9 @@ that the package does not check.
 
 - 25 words maximum for descriptive prose, 20 for procedural. An identifier or a
   backticked name counts as one word.
-- Six sentences maximum per paragraph, one topic per paragraph, and two to four
-  sentences in a book or a README. Split a longer paragraph at its topic change.
+- Six sentences maximum per paragraph and one topic per paragraph, with two to
+  four sentences in a book or a README. Split a longer paragraph at its topic
+  change.
 - Simple tenses. No present perfect ("has been sent" becomes "is sent") and no
   progressive passive.
 - Active voice by default, with the component named as the actor ("the cache
@@ -79,8 +80,8 @@ that the package does not check.
   paragraph about the entry, "the entry is evicted by the cache" is correct. Do
   not address the reader as "you" and do not give a task, worker or code path a
   person-like verb. Do not give a parameter, a limit or a setting an action
-  verb. Name the component that applies the value as the actor ("the operator
-  kills the program").
+  verb. Make the component that applies the value the actor ("the operator kills
+  the program").
 - A verb over a copula that equates two noun phrases: "the invoice is issued at
   the deadline", never "the issue time is the deadline".
 - No classifying predicate that files a subject under a noun with a relative
@@ -151,8 +152,8 @@ that the package does not check.
 
 ## Vocabulary
 
-One term per concept across a document: do not rotate synonyms such as check,
-verify and confirm, or config and settings. Break a noun chain over three words
+One term per concept across a document: do not alternate between check, verify
+and confirm or between config and settings. Break a noun chain over three words
 with a preposition.
 
 Avoid, and write instead:
@@ -206,8 +207,8 @@ Avoid, and write instead:
   unused, without effect, or state what it does not apply to. The dead-letter
   sense (a dead job, the dead set) stays
 - cheap, expensive, keeps X cheap, costs X, pay a cost, tax (of an operation, a
-  loss, a choice or a design): state the literal cost as a count of reads,
-  writes, scans or lock holds, or name the operation or what is avoided
+  loss, a choice or a design): state the literal cost (a count of reads, writes,
+  scans or lock acquisitions) or identify the operation or what is avoided
 - hot path: name the path
 - load-bearing (of a link, a sentence or a decision): necessary, or state what
   depends on it

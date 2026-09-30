@@ -4,7 +4,7 @@ test.md:7:15:Micllam.Vocabulary:'before, after, sorts before, sorts after, due a
 test.md:9:18:Micllam.Vocabulary:'before, after, sorts before, sorts after, due after, is enabled by, requires, conditional on' for 'behind'
 test.md:11:11:Micllam.Vocabulary:'stored, held, or name what remains and where' for 'leaves a lock file behind'
 test.md:16:32:Micllam.Vocabulary:'name the operations, or "the work that follows the commit"' for 'bookkeeping'
-test.md:18:27:Micllam.Vocabulary:'state the literal cost as a count of reads, writes, scans or lock holds' for 'cheap'
+test.md:18:27:Micllam.Vocabulary:'state the literal cost as a count of reads, writes, scans or lock acquisitions' for 'cheap'
 test.md:20:14:Micllam.Vocabulary:'important' for 'crucial'
 test.md:22:13:Micllam.Vocabulary:'show' for 'showcases'
 test.md:24:11:Micllam.Vocabulary:'help, support, let' for 'fosters'

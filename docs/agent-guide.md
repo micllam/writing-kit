@@ -61,15 +61,15 @@ lead-in of each rule matches its key in `coverage/`.
 
 - **Sentence length.** 25 words maximum for descriptive prose, 20 for
   procedural. An identifier or a backticked name counts as one word.
-- **Paragraph length.** Six sentences maximum per paragraph, one topic per
-  paragraph, and two to four sentences in a book or a README. Split a longer
+- **Paragraph length.** Six sentences maximum per paragraph and one topic per
+  paragraph, with two to four sentences in a book or a README. Split a longer
   paragraph at its topic change.
 - **Active voice.** Active voice by default, with the component named as the
   actor ("the cache evicts the entry"). In descriptive prose a passive is
   correct when its subject is the paragraph's topic and the actor is named in
   the paragraph. Do not give a task, worker or code path a person-like verb.
 - **No action verb for a setting.** Do not give a parameter, a limit or a
-  setting an action verb. Name the component that applies the value as the actor
+  setting an action verb. Make the component that applies the value the actor
   ("the operator kills the program").
 - **Verb over copula.** A verb over a copula that equates two noun phrases: "the
   invoice is issued at the deadline", never "the issue time is the deadline".
@@ -101,12 +101,12 @@ lead-in of each rule matches its key in `coverage/`.
 ## Vocabulary
 
 - **One term per concept.** One term per concept across a document: do not
-  rotate synonyms such as check, verify and confirm, or config and settings.
+  alternate between check, verify and confirm or between config and settings.
 - **Noun chains.** Break a noun chain over three words with a preposition.
 - **Strand.** `strand`: state the literal effect or condition.
 - **Costs.** `costs X`, `pay a cost`, `tax` (of an operation, a loss, a choice
-  or a design): state the literal cost as a count of reads, writes, scans or
-  lock holds, or name the operation or what is avoided.
+  or a design): state the literal cost (a count of reads, writes, scans or lock
+  acquisitions) or identify the operation or what is avoided.
 - **Floor, envelope.** `floor`: lower bound. `envelope`: range, profile.
 - **Collapse.** `collapse` (of a metric): fall.
 - **Just and glue.** Delete `just` and `glue` outright.

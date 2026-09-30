@@ -109,11 +109,12 @@ manifest refers to a rule or when the lead-ins of `docs/agent-guide.md` differ
 from the keys that are `false` in `coverage/`. It requires Go and `vale`.
 
 `scripts/test.sh` builds the package, installs it in a temporary project and
-runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md` and
-`fixtures/package/`. Only this test reads the configuration of the package in
-`.vale.ini`. It fails on each of these conditions:
+runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md`, `docs/agent-guide.md`
+and `fixtures/package/`. Only this test reads the configuration of the package
+in `.vale.ini`. It fails on each of these conditions:
 
-- A valid fixture, the README or the CHANGELOG produces an alert.
+- A valid fixture, the README, the CHANGELOG or the agent guide produces an
+  alert.
 - The alerts of `fixtures/package/` differ from `fixtures/expected.txt`.
 - The README does not state the Vale version of `meta.json`.
 - The README lists the package at a version other than the last section of
