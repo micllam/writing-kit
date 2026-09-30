@@ -32,27 +32,41 @@ StylesPath = .vale/styles
 Packages = https://github.com/micllam/writing-kit/releases/latest/download/Micllam.zip
 ```
 
-Run `vale sync` after a change to `Packages`. The configuration of the package
-selects the rules by file type:
+Run `vale sync` after a clone and after a change to `Packages`. The
+configuration of the package selects the rules by file type:
 
 - Markdown: every rule, with lines wrapped at 80 columns. The list rule runs on
   `CHANGELOG.md` only, and a fenced code block is code.
 - Rust: every rule on the comments and doc comments, with the comment wrap,
-  title-comment and section-divider rules. A string literal and the message of
-  an `#[error("...")]` attribute are code.
+  title-comment and section-divider rules. A string literal, the message of an
+  `#[error("...")]` attribute and the content of a code fence in a doc comment
+  are code.
 - A commit message, as `COMMIT_*.txt` written by Git: every rule, as Markdown,
   with the subject and 72-column rules.
 - Plain text: every rule, without the wrap.
 - Shell, TOML and Python: the comment wrap and section-divider rules only.
 - Any other file type: no rule.
 
+A project adds its own rules as a second style in `StylesPath`, such as a
+substitution rule for the vocabulary of its domain, and lists both styles in
+each section of its `.vale.ini`. A section that lists the project style alone
+disables the package for that file type.
+
+```ini
+[*.{md,rs}]
+BasedOnStyles = Micllam, Project
+```
+
+`vale sync` writes the package into `StylesPath`. A project commits its own
+style folder and ignores the other contents of `StylesPath` in Git.
+
 In CI, the official action runs the package on a pull request and reports each
-alert as a review comment. A project refers to each action by its commit hash,
-as the workflows of this repository do:
+alert of an added line as a review comment. A project refers to each action by
+its commit hash, as the workflows of this repository do:
 
 ```yaml
-- uses: actions/checkout@v5
-- uses: vale-cli/vale-action@v3
+- uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+- uses: vale-cli/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
   with:
     fail_on_error: true
 ```
@@ -74,6 +88,8 @@ A change to the style is a change to `docs/writing-style.md` first. A rule in
 and links to its section of the style. A single substitution rule checks a word
 list such as the vocabulary, with the replacement of each entry. A new rule
 comes with its fixture and its manifest key, and the tests fail without either.
+An entry of a project style that a second project needs moves to the Vocabulary
+section of the style and to `Vocabulary.yml`.
 
 ## Tests
 
