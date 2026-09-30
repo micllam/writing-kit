@@ -40,6 +40,8 @@ jobs:
         run: go test ./...
 
       - name: Test the package
+        env:
+          PACKAGE_REF: ${{ github.ref_name }}
         run: ./scripts/test.sh
 
       - name: Create GitHub release

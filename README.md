@@ -105,19 +105,25 @@ no manifest refers to a rule. It requires Go and `vale`.
 `scripts/test.sh` builds the package, installs it in a temporary project and
 runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md` and
 `fixtures/package/`. Only this test reads the configuration of the package in
-`.vale.ini`. It fails when a valid fixture, the README or the CHANGELOG produces
-an alert, when the alerts of `fixtures/package/` differ from
-`fixtures/expected.txt`, when the README does not state the Vale version of
-`meta.json` or when the `Packages` URL of the README does not have the version
-of the last section of `CHANGELOG.md`. After a change to `.vale.ini`, the
-command `scripts/test.sh --update` writes the new alerts to
-`fixtures/expected.txt`. The test requires `vale` and `zip`.
+`.vale.ini`. It fails on each of these conditions:
+
+- A valid fixture, the README or the CHANGELOG produces an alert.
+- The alerts of `fixtures/package/` differ from `fixtures/expected.txt`.
+- The README does not state the Vale version of `meta.json`.
+- The README lists the package at a version other than the last section of
+  `CHANGELOG.md`.
+- The installed rules do not link to the style at `PACKAGE_REF`, `master` by
+  default.
+
+After a change to `.vale.ini`, the command `scripts/test.sh --update` writes the
+new alerts to `fixtures/expected.txt`. The test requires `vale` and `zip`.
 
 ## Release
 
 The release commit adds the section of the version to `CHANGELOG.md` and sets
 the version in the `Packages` URL of this README. A tag that starts with `v`
-then runs the release workflow, which tests the package and attaches
-`Micllam.zip` to a GitHub release whose notes are that section. The workflow
-fails without the section. An entry in `CHANGELOG.md` covers a change to the
-rules, the configuration, the style or the Vale requirement.
+then runs the release workflow, which tests the package with `PACKAGE_REF` set
+to the tag and attaches the tested `Micllam.zip` to a GitHub release whose notes
+are that section. Each rule of the release links to the style at the tag. The
+workflow fails without the section. An entry in `CHANGELOG.md` covers a change
+to the rules, the configuration, the style or the Vale requirement.
