@@ -4,4 +4,4 @@ level: error
 link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#sentences
 ignorecase: true
 raw:
-  - '(?:(?<!\bthere\s)\b(share|have|include|contain|write|leave|need|take|make|return|record|keep|require|create|see|find|read|add|own|define|expose|report|apply|hold|use|run|emit|store|carry|start|get|give|produce|provide|allow|accept|cause|send|match|print|show)\s(no|nothing|none)\b)|(?:(?<!\bthere\s)[a-z]+ed\s(no|nothing|none)\b)|(?:(?<!\bthere\s)[a-z]+s\sno\s)|(?:(?<!\bthere\s)[a-z]+s\snothing)|(?:(?<!\bthere\s)[a-z]+s\snone\b)|(?:(?<!\bthere\s)\b(to|for|on|at|with|in|of)\sno\s[a-z])'
+  - '(?:(?<!\bthere\s)\b(share|have|include|contain|write|leave|need|take|make|return|record|keep|require|create|see|find|read|add|own|define|expose|report|apply|hold|use|run|emit|store|carry|start|get|give|produce|provide|allow|accept|cause|send|match|print|show)\s(no(?!\slonger\b)|nothing|none)\b)|(?:(?<!\bthere\s)[a-z]+ed\s(no(?!\slonger\b)|nothing|none)\b)|(?:(?<!\bthere\s)[a-z]+s\sno\s(?!longer\b))|(?:(?<!\bthere\s)[a-z]+s\snothing)|(?:(?<!\bthere\s)[a-z]+s\snone\b)|(?:(?<!\bthere\s)\b(to|for|on|at|with|in|of)\sno\s(?!longer\b)[a-z])'

@@ -5,3 +5,5 @@ The scan finds nothing in the prefix.
 There is no expiry in the record, and there are no keys with that prefix.
 
 No task reads the key after the commit.
+
+The record no longer includes an expiry, and the scan is no longer bounded.

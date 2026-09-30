@@ -117,7 +117,7 @@ that the package does not check.
 - Plain negation, not a verb plus "no", "nothing" or "none". Write "does not
   include an expiry", never "includes no expiry", and "do not share a key",
   never "share no key". Existential and subject-position negation is correct
-  ("there is no such record", "no task observes it").
+  ("there is no such record", "no task observes it"), and so is "no longer".
 - No "X, not Y" contrast, no "rather than" and no "instead of". State the
   property positively. A terse structural contrast that is itself the content
   ("embedded, not operated") survives.
