@@ -11,6 +11,7 @@ Vale 3.23.0 or later.
 | Path | Contents |
 |---|---|
 | [`docs/writing-style.md`](docs/writing-style.md) | The writing style: content, CHANGELOG entries, commit messages, sentences, punctuation and vocabulary |
+| [`docs/agent-guide.md`](docs/agent-guide.md) | The rules of the style that the package does not check, for the instructions that an agent reads in every session |
 | [`styles/Micllam/`](styles/Micllam/) | 30 rules, one per concept of the style |
 | [`styles/config/scripts/`](styles/config/scripts/) | The Tengo scripts of the wrap, title-comment and CHANGELOG rules |
 | [`.vale.ini`](.vale.ini) | The configuration of the package: the file types that each rule applies to |
@@ -74,7 +75,9 @@ its commit hash, as the workflows of this repository do:
 ```
 
 The style also states the rules that a pattern cannot check, such as the content
-of a docstring or the topic of a paragraph. A project applies those in review.
+of a docstring or the topic of a paragraph. A project applies those in review,
+and `docs/agent-guide.md` collects them for the instructions of an agent, whose
+other prose rules the package reports on each edit.
 
 ## Coverage
 
@@ -90,8 +93,10 @@ A change to the style is a change to `docs/writing-style.md` first. A rule in
 and links to its section of the style. A single substitution rule checks a word
 list such as the vocabulary, with the replacement of each entry. A new rule
 comes with its fixture and its manifest key, and the tests fail without either.
-An entry of a project style that a second project needs moves to the Vocabulary
-section of the style and to `Vocabulary.yml`.
+A rule without a Vale rule is a bullet of `docs/agent-guide.md` whose bold
+lead-in matches its manifest key, and the bullet leaves the guide when the rule
+gets a Vale rule. An entry of a project style that a second project needs moves
+to the Vocabulary section of the style and to `Vocabulary.yml`.
 
 ## Tests
 
@@ -99,8 +104,9 @@ section of the style and to `Vocabulary.yml`.
 fails when the alerts differ from the file of the rule in `testdata/`, or when a
 rule does not have a fixture. `go test ./... -update` records the new alerts
 after a change to a rule. The test also fails when a value in `coverage/` is not
-`true` or `false`, when a comment refers to a rule that does not exist or when
-no manifest refers to a rule. It requires Go and `vale`.
+`true` or `false`, when a comment refers to a rule that does not exist, when no
+manifest refers to a rule or when the lead-ins of `docs/agent-guide.md` differ
+from the keys that are `false` in `coverage/`. It requires Go and `vale`.
 
 `scripts/test.sh` builds the package, installs it in a temporary project and
 runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md` and

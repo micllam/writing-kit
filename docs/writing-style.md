@@ -2,8 +2,9 @@
 
 These rules apply to every piece of prose in a project: doc comments, code
 comments, READMEs, a book, CHANGELOG entries and commit messages. The Vale
-package `Micllam` in this repository checks the rules that a pattern can
-match, and the files in `coverage/` list which ones.
+package `Micllam` in this repository checks the rules that a pattern can match,
+the files in `coverage/` list which ones, and `agent-guide.md` states the rules
+that the package does not check.
 
 ## Content
 
