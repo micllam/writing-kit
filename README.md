@@ -30,7 +30,7 @@ A project lists the package in its `.vale.ini`:
 
 ```ini
 StylesPath = .vale/styles
-Packages = https://github.com/micllam/writing-kit/releases/download/v0.1.0/Micllam.zip
+Packages = https://github.com/micllam/writing-kit/releases/download/v0.2.0/Micllam.zip
 ```
 
 Run `vale sync` after a clone and after a change to `Packages`. An upgrade of
