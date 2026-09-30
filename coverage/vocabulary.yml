@@ -35,6 +35,7 @@ dead: true
 cheap-expensive: true
 costs: false
 hot-path: true
+load-bearing: true
 for-free-bolted-on: true
 is-noise-earns-its-keep: true
 dedupe-plumbing-impls: true

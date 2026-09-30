@@ -35,6 +35,7 @@ swap:
   'dead (configuration|code|value|field|arm|branch)': 'unreachable, unused, without effect, or state what it does not apply to'
   '(cheap|expensive)': 'state the literal cost as a count of reads, writes, scans or lock holds'
   'hot paths?': 'name the path'
+  'load[- ]bearing': 'necessary, or state what depends on it'
   'for free': 'by construction'
   'bolted[- ]on': 'separately maintained'
   'is noise': 'is negligible'

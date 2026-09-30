@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.Vocabulary` permits "will need to" as a form of a requirement, with
   "must" and "require".
 - Each rule of a release links to the section of the style at the release tag.
+- `Micllam.Vocabulary` reports `load-bearing`, with the replacement "necessary,
+  or state what depends on it".
 
 ### Removed
 

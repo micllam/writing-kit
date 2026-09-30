@@ -105,6 +105,8 @@ The task identifier rides in the header.
 
 The lookup is on the hot path.
 
+The link is load-bearing.
+
 The ordering comes for free.
 
 The cache is a bolted-on layer.

@@ -21,7 +21,7 @@ match, and the files in `coverage/` list which ones.
   explains is a signal to move or delete the explanation.
 - Write current behaviour. No historical narrative, and no negative space (do
   not document what a record no longer includes).
-- Cross-reference only when the link is load-bearing. A method on the same type
+- Cross-reference only when the reader needs the link. A method on the same type
   is discoverable without a pointer. A pointer identifies its target or says
   "that follows", never "above" or "below".
 - Define a concept term at its first use, in under ten words, one definition per
@@ -208,6 +208,8 @@ Avoid, and write instead:
   loss, a choice or a design): state the literal cost as a count of reads,
   writes, scans or lock holds, or name the operation or what is avoided
 - hot path: name the path
+- load-bearing (of a link, a sentence or a decision): necessary, or state what
+  depends on it
 - for free: by construction. bolted-on: separately maintained
 - is noise: is negligible. earns its keep, earns its place: is justified
 - dedupe: deduplicate. plumbing, machinery: mechanism, or name the components.
