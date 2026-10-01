@@ -13,7 +13,7 @@ strip := func(line) {
 }
 longest_span := func(line) {
   best := 0
-  found := text.re_find("`[^`]+`|\\[[^\\]]+\\](?:\\([^)]+\\)|\\[[^\\]]*\\])", line, -1)
+  found := text.re_find("``.+?``|`[^`]+`|\\[[^\\]]+\\](?:\\([^)]+\\)|\\[[^\\]]*\\])", line, -1)
   if found == undefined { return 0 }
   for m in found {
     n := width(m[0].text)
@@ -23,6 +23,7 @@ longest_span := func(line) {
 }
 first_token := func(t) {
   m := text.re_find("^\\(?\\[[^\\]]+\\](\\([^)]+\\)|\\[[^\\]]*\\])[).,;:]*", t, 1)
+  if m == undefined { m = text.re_find("^\\(?``.+?``[).,;:]*", t, 1) }
   if m == undefined { m = text.re_find("^\\(?`[^`]+`[).,;:]*", t, 1) }
   if m == undefined { m = text.re_find(`^[^ ]+`, t, 1) }
   if m == undefined { return "" }

@@ -46,3 +46,7 @@ pub fn m() {}
 
 /// The worker retries each `failed` task until the lease expires, and the queue requeues it.
 pub fn n() {}
+
+/// The worker reads each stored field of the record and then writes it.
+/// ``a `tick` b`` is a span that holds a backtick.
+pub fn o() {}

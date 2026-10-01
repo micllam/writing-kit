@@ -33,3 +33,8 @@ The record has fields.
 - [`examples/long-example/src/fanout.rs`](examples/a-much-longer-example/src/fanout.rs)
 
 The worker retries each `failed` task until the lease expires, and the queue requeues it.
+
+The worker reads each stored field of the record and then writes the result.
+``a `tick` b`` is a span that holds a backtick.
+
+The span ``one `two` three `four` five `six` seven `eight` nine`` holds backticks.
