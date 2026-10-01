@@ -33,3 +33,10 @@ pub fn j() {}
 /// The worker reads the stored fields of the record.
 /// ([The job record](job-record.md#the-stored-fields)) lists them.
 pub fn k() {}
+
+/// The record has fields.
+/// [`Record`] lists them.
+///
+/// [`Record`]: crate::record::Record
+/// [`Field`]: crate::record::Field
+pub fn l() {}

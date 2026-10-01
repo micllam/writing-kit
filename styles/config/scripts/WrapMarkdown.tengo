@@ -42,7 +42,7 @@ is_prose := func(i, line) {
       fence = !fence
       return false
     }
-    return !fence && !text.re_match("^(//[/!]?|#) *(# |\\||use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
+    return !fence && !text.re_match("^(//[/!]?|#) *(# |\\||\\[[^\\]]+\\]:|use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
   }
   if i == 0 && l == "---" {
     front = true
@@ -52,7 +52,7 @@ is_prose := func(i, line) {
   }
   if front { return false }
   if text.has_prefix(l, "```") { fence = !fence }
-  return !fence && !text.re_match("^(\\||\\[|```|[a-z-]+ = |$)", l)
+  return !fence && !text.re_match("^(\\||\\[[^\\]]+\\]:|```|[a-z-]+ = |$)", l)
 }
 
 lines := text.split(scope, "\n")
@@ -70,7 +70,7 @@ for i, line in lines {
     matches = append(matches, {begin: offset, end: offset + len(line), message: "Line over 80 columns"})
   }
   tok := first_token(t)
-  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(]", t) && prev_len + 1 + width(tok) <= 80 {
+  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev_len + 1 + width(tok) <= 80 {
     matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Ragged line: room for the next line's first word"})
   }
   prev_prose = prose && t != ""

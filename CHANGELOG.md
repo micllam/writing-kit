@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `Micllam.WrapMarkdown` and `Micllam.WrapComments` check a line that starts
+  with a link and the line above it, and skip a link definition. Rewrap the
+  paragraphs that the rules report.
+
 ### Fixed
 
 - `Micllam.WrapMarkdown` and `Micllam.WrapComments` treat an inline or reference
