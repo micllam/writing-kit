@@ -33,7 +33,15 @@ front := false
 is_prose := func(i, line) {
   l := text.trim_left(line, " \t")
   if mode == "comment" {
-    return text.re_match(`^(//[/!]?|#)( |$)`, l) && !text.re_match("^(//[/!]?|#) *(```|# |use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
+    if !text.re_match(`^(//[/!]?|#)( |$)`, l) {
+      fence = false
+      return false
+    }
+    if text.re_match("^(//[/!]?|#) *```", l) {
+      fence = !fence
+      return false
+    }
+    return !fence && !text.re_match("^(//[/!]?|#) *(# |\\||use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
   }
   if i == 0 && l == "---" {
     front = true

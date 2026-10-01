@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `Micllam.WrapComments` skips a table row and the lines of a code fence in a
+  comment, as `Micllam.WrapMarkdown` skips them in Markdown. A project can
+  remove the Vale markers around such lines.
+
 ## [0.2.0] - 2026-09-30
 
 ### Changed

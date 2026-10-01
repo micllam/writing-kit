@@ -1,2 +1,3 @@
 test.rs:2:1:Micllam.WrapComments:Line over 80 columns
 test.rs:6:1:Micllam.WrapComments:Ragged line: room for the next line's first word
+test.rs:30:1:Micllam.WrapComments:Line over 80 columns

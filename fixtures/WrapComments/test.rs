@@ -10,3 +10,22 @@ pub fn f() {}
 /// The worker retries each failed task until the lease expires, and the queue
 /// then requeues the task.
 pub fn g() {}
+
+/// | Key | Meaning |
+/// |---|---|
+/// | `retry_after` | The number of seconds that the worker waits before the next attempt |
+///
+/// ```
+/// let pair = (
+///     1,
+/// );
+/// assert!(pair.0 == 1);
+/// ```
+pub fn h() {}
+
+/// ```
+/// let open = 1;
+pub fn i() {}
+
+/// The worker retries each failed task until the lease expires, and the queue then requeues the task.
+pub fn j() {}
