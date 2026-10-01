@@ -63,6 +63,11 @@ BasedOnStyles = Micllam, Project
 `vale sync` writes the package into `StylesPath`. A project commits its own
 style folder and ignores the other contents of `StylesPath` in Git.
 
+A `<!-- vale off -->` marker in a Markdown file must have a closing
+`<!-- vale on -->` marker, even at the end of the file. Without the closing
+marker, Vale 3.23.0 drops the alerts of the wrap and list rules for the whole
+file.
+
 In CI, the official action runs the package and reports each alert as an
 annotation. On a pull request it checks the added lines, and on a push it checks
 the whole repository. GitHub shows at most ten annotations of a step, and the
