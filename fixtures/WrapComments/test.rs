@@ -29,3 +29,7 @@ pub fn i() {}
 
 /// The worker retries each failed task until the lease expires, and the queue then requeues the task.
 pub fn j() {}
+
+/// The worker reads the stored fields of the record.
+/// ([The job record](job-record.md#the-stored-fields)) lists them.
+pub fn k() {}

@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `Micllam.WrapMarkdown` and `Micllam.WrapComments` treat an inline or reference
+  link with its target as one word, as they treat a code span. A project can
+  move a link whole to the next line.
+
 ## [0.2.1] - 2026-10-01
 
 ### Fixed

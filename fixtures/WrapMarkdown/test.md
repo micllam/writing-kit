@@ -9,3 +9,14 @@ The worker retries each failed task until the lease expires, and the queue then 
 
 The worker retries each failed task until the lease expires, and the queue then
 requeues the task.
+
+The worker reads the stored fields of the record.
+([The job record](job-record.md#the-stored-fields)) lists them.
+
+The worker reads the stored fields of the record.
+([The stored fields of a job record][record]) lists them.
+
+[record]: job-record.md#the-stored-fields
+
+The record has fields.
+([The job record](job-record.md)) lists them.

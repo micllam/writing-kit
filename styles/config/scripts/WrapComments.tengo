@@ -22,7 +22,8 @@ longest_span := func(line) {
   return best
 }
 first_token := func(t) {
-  m := text.re_find("^\\(?`[^`]+`[).,;:]*", t, 1)
+  m := text.re_find("^\\(?\\[[^\\]]+\\](\\([^)]+\\)|\\[[^\\]]*\\])[).,;:]*", t, 1)
+  if m == undefined { m = text.re_find("^\\(?`[^`]+`[).,;:]*", t, 1) }
   if m == undefined { m = text.re_find(`^[^ ]+`, t, 1) }
   if m == undefined { return "" }
   return m[0][0].text
