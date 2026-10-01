@@ -5,3 +5,4 @@ test.md:8:1:Micllam.WrapMarkdown:Line over 80 columns
 test.md:21:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
 test.md:25:1:Micllam.WrapMarkdown:Line over 80 columns
 test.md:27:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
+test.md:35:1:Micllam.WrapMarkdown:Line over 80 columns

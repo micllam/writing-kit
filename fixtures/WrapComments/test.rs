@@ -40,3 +40,9 @@ pub fn k() {}
 /// [`Record`]: crate::record::Record
 /// [`Field`]: crate::record::Field
 pub fn l() {}
+
+/// [`examples/long-example/src/fanout.rs`](examples/a-much-longer-example/src/fanout.rs)
+pub fn m() {}
+
+/// The worker retries each `failed` task until the lease expires, and the queue requeues it.
+pub fn n() {}

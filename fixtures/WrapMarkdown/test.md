@@ -29,3 +29,7 @@ The record has fields.
 
 [a-long-definition]: docs/a/long/path/to/a/document/that/does/not/fit/on/one/line.md
 [short]: docs/short.md
+
+- [`examples/long-example/src/fanout.rs`](examples/a-much-longer-example/src/fanout.rs)
+
+The worker retries each `failed` task until the lease expires, and the queue requeues it.

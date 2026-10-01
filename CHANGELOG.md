@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `Micllam.WrapMarkdown` and `Micllam.WrapComments` exempt a line with a link of
+  42 columns or more from the 80-column limit, as they exempt a long code span.
+  A project can restore the link text that it shortened for the limit.
+
 ## [0.3.0] - 2026-10-01
 
 ### Changed
