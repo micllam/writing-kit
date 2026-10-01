@@ -3,9 +3,9 @@
 # fixtures. The files in fixtures/valid, README.md, CHANGELOG.md and
 # docs/agent-guide.md must not produce an alert, and the alerts of
 # fixtures/package must equal fixtures/expected.txt. README.md must state the
-# Vale version of meta.json and the version of the last CHANGELOG.md section in
-# its Packages URL, and the installed rules must link to the style at
-# PACKAGE_REF, master by default.
+# Vale version of meta.json in its text and its CI example, and the version of
+# the last CHANGELOG.md section in its Packages URL. The installed rules must
+# link to the style at PACKAGE_REF, master by default.
 #
 # With --update, the script writes the alerts of fixtures/package to
 # fixtures/expected.txt.
@@ -18,6 +18,8 @@ version=$(sed -n 's/.*"vale_version": ">=\([0-9.]*\)".*/\1/p' "$repo_dir/meta.js
 [ -n "$version" ] || { echo "meta.json: no vale_version" >&2; exit 1; }
 grep -q "Vale $version or later" "$repo_dir/README.md" \
   || { echo "README.md does not state Vale $version" >&2; exit 1; }
+grep -qxF "    version: $version" "$repo_dir/README.md" \
+  || { echo "README.md: the CI example does not set version $version" >&2; exit 1; }
 
 release=$(sed -n 's/^## \[\([0-9][0-9.]*\)\].*/\1/p' "$repo_dir/CHANGELOG.md" | head -n 1)
 [ -n "$release" ] || { echo "CHANGELOG.md: no released version" >&2; exit 1; }

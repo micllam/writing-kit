@@ -121,7 +121,8 @@ in `.vale.ini`. It fails on each of these conditions:
 - A valid fixture, the README, the CHANGELOG or the agent guide produces an
   alert.
 - The alerts of `fixtures/package/` differ from `fixtures/expected.txt`.
-- The README does not state the Vale version of `meta.json`.
+- The README does not state the Vale version of `meta.json` in its text and its
+  CI example.
 - The README lists the package at a version other than the last section of
   `CHANGELOG.md`.
 - The installed rules do not link to the style at `PACKAGE_REF`, `master` by
