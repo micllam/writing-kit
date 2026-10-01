@@ -63,14 +63,19 @@ BasedOnStyles = Micllam, Project
 `vale sync` writes the package into `StylesPath`. A project commits its own
 style folder and ignores the other contents of `StylesPath` in Git.
 
-In CI, the official action runs the package on a pull request and reports each
-alert of an added line as a review comment. A project refers to each action by
-its commit hash, as the workflows of this repository do:
+In CI, the official action runs the package and reports each alert as an
+annotation. On a pull request it checks the added lines, and on a push it checks
+the whole repository. GitHub shows at most ten annotations of a step, and the
+job log lists every alert.
+
+A project refers to each action by its commit hash, as the workflows of this
+repository do, and sets the Vale version of `meta.json`:
 
 ```yaml
 - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 - uses: vale-cli/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
   with:
+    version: 3.23.0
     fail_on_error: true
 ```
 
