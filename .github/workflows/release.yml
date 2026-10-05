@@ -44,11 +44,16 @@ jobs:
           PACKAGE_REF: ${{ github.ref_name }}
         run: ./scripts/test.sh
 
+      - name: Install parse-changelog
+        uses: taiki-e/install-action@e407f7bafb71fd004bc5c2da3032e5470cbb6ef0 # v2.87.24
+        with:
+          tool: parse-changelog
+
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
         run: |
-          ./scripts/notes.sh "${TAG#v}" > "$RUNNER_TEMP/notes.md"
+          parse-changelog CHANGELOG.md "${TAG#v}" > "$RUNNER_TEMP/notes.md"
           gh release create "$TAG" dist/Micllam.zip --title "$TAG" \
             --notes-file "$RUNNER_TEMP/notes.md"
