@@ -49,8 +49,8 @@ lead-in of each rule matches its key in `coverage/`.
 ## Commit messages
 
 - **Subject style.** The subject is in the repository's style. Without an
-  established style, the subject is `area: summary` in the imperative, lowercase
-  after the prefix and without a full stop. It is under 50 characters where
+  established style, the subject is `area: summary` in the imperative, in lower
+  case after the prefix and without a full stop. It is under 50 characters where
   possible.
 - **Body content.** The body states only what the diff does not show: the
   reason, a rejected alternative or a non-obvious consequence. It does not
@@ -88,7 +88,7 @@ lead-in of each rule matches its key in `coverage/`.
 - **Bold and emoji.** Bold only as the lead-in of a list item or a paragraph
   that states a rule or an invariant. No emoji.
 - **Vertical lists.** A vertical list is for three or more parallel items. It
-  has a colon on the lead-in, an uppercase start and no nested lists, and it
+  has a colon on the lead-in, an upper-case start and no nested lists, and it
   never mixes facts and instructions. Three or more parallel statements in prose
   become a list, and a bullet that runs to several sentences becomes a
   subheading with a short paragraph.

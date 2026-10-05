@@ -23,3 +23,4 @@ swap:
   '(gr)ay': '$1ey'
   '(siz|lik)able': '$1eable'
   'skep(tic|tical|ticism)': 'scep$1'
+  '(lower|upper)case': '$1 case, or $1-case before a noun'

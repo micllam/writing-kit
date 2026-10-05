@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   each sentence that the rule reports.
 - The style excludes `one` as an article where the count is not the point. Write
   "a" or "an" in its place.
+- `Micllam.BritishSpelling` reports `lowercase` and `uppercase`. Write "lower
+  case" as a noun and "lower-case" before a noun, and the same for "upper case".
 
 ## [0.3.1] - 2026-10-01
 

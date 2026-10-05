@@ -56,9 +56,9 @@ that the package does not check.
 ## Commit messages
 
 - The subject is in the repository's style. Without an established style, the
-  subject is `area: summary` in the imperative, lowercase after the prefix and
-  without a full stop. It is under 50 characters where possible and never over
-  72.
+  subject is `area: summary` in the imperative, in lower case after the prefix
+  and without a full stop. It is under 50 characters where possible and never
+  over 72.
 - The body states only what the diff does not show: the reason, a rejected
   alternative or a non-obvious consequence. It does not describe how the new
   code works, and it does not narrate the work that led to the change.
@@ -133,13 +133,15 @@ that the package does not check.
   without it.
 - No Latin abbreviations. Write "for example" or "that is", or list the items.
 - British spelling in prose (behaviour, amortises, favour, catalogue). A term
-  taken from an API or a format keeps its spelling (serialize).
+  taken from an API or a format keeps its spelling (serialize). "Lower case" and
+  "upper case" are two words as a noun and hyphenated before a noun (lower-case
+  letters).
 - "ad hoc" is two words, and the phrasal verb is "opt in", so "opts in to".
   "Signaller" has two l's.
 - Bold only as the lead-in of a list item or a paragraph that states a rule or
   an invariant. No emoji.
 - A vertical list is for three or more parallel items. It has a colon on the
-  lead-in, an uppercase start and no nested lists, and it never mixes facts and
+  lead-in, an upper-case start and no nested lists, and it never mixes facts and
   instructions. Three or more parallel statements in prose become a list, and a
   bullet that runs to several sentences becomes a subheading with a short
   paragraph.

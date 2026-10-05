@@ -6,6 +6,9 @@ The task is canceled while modeling, so the labeled defense fulfills the order.
 
 The judgment of the aging gray parser is sizable and skeptical.
 
+The name is lowercase, with an uppercase start.
+
 The behaviour of the colours in the catalogue amortises the cost, and the
 `serialize` function keeps the spelling of the API. A size, a prize, the seized
-lease and the fulfilled order are correct.
+lease and the fulfilled order are correct. The name is in lower case, with an
+upper-case start.
