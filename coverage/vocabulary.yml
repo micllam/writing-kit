@@ -48,6 +48,7 @@ one-as-an-article: false
 answer: true
 verdict: true
 pin: true
+takes-it: true
 stamp: true
 stands-in-for: true
 at-the-same: true

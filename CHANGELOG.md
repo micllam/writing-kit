@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   "a" or "an" in its place.
 - `Micllam.BritishSpelling` reports `lowercase` and `uppercase`. Write "lower
   case" as a noun and "lower-case" before a noun, and the same for "upper case".
+- `Micllam.Vocabulary` reports "takes it" after a method name, the parameter
+  sense. State the parameter in its place.
 
 ## [0.3.1] - 2026-10-01
 

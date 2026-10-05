@@ -191,6 +191,15 @@ The manifest lists a pinned dependency.
 
 The worker polls the pinned future.
 
+The key order of a listing, as `kv_scan` takes it.
+
+A range of keys within a prefix, as
+[`QueueView::kv_scan`](crate::QueueView::kv_scan) takes it.
+
+The transaction is open. A later claim takes it.
+
+The worker takes it as an argument.
+
 The scan proves that the prefix is empty.
 
 The worker retries since the lease expired.

@@ -237,6 +237,8 @@ Avoid, and write instead:
   keeps a fixed value): records, fixed at, or state the field ("the graph run
   records the definition hash"). A pinned dependency in a manifest is the
   standard sense and stays
+- takes it, takes them (of a method and its parameter): state the parameter, as
+  in "the key order of a `kv_scan` listing"
 - stamp, stamped (of a time): is recorded at, is dated. Of a field: sets, writes
 - stands in for: is used in place of, or state which one is kept
 - at the same version, at the same X (as a trailing qualifier): a sentence that
