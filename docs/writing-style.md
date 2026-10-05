@@ -86,10 +86,6 @@ that the package does not check.
   clause ("is a state that", "is a case where"). Name the actor and state the
   fact with a verb: "the runtime does not write a pointer without its job",
   never "a pointer without its job is a state that no runtime write produces".
-- Modals: can, will and must. Never should, may, might or could. A required
-  "should" becomes "must", and an optional "should" is deleted. "Would" appears
-  only in a counterfactual with a stated condition ("Without the lock, two
-  writers would overwrite each other"), never as a hedge.
 - State a requirement with "must", "require" or "will need to", never with a
   plain present verb ("a caller sets `timeout`"). When a type imposes the
   requirement, make the type the subject ("`SubprocessParams` and `ShellParams`

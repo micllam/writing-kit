@@ -41,7 +41,7 @@ INI
 cd "$test_dir"
 vale --no-global sync >/dev/null
 ref=${PACKAGE_REF:-master}
-grep -q "/blob/$ref/docs/writing-style.md" .vale/styles/Micllam/Modals.yml \
+grep -q "/blob/$ref/docs/writing-style.md" .vale/styles/Micllam/Vocabulary.yml \
   || { echo "the installed rules do not link to the style at $ref" >&2; exit 1; }
 vale --no-global valid README.md CHANGELOG.md agent-guide.md
 vale --output=line --sort --normalize --relative --no-global --no-exit package \

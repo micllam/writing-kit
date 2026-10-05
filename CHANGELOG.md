@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.PresentPerfect` is removed, and the style permits the present perfect
   and the progressive passive. A setting such as `Micllam.PresentPerfect = NO`
   in a `.vale.ini` no longer has an effect, and a project can remove it.
+- `Micllam.Modals` is removed, and the style permits every modal verb. A setting
+  such as `Micllam.Modals = NO` in a `.vale.ini` no longer has an effect, and a
+  project can remove it.
 
 ### Fixed
 

@@ -7,7 +7,6 @@ no-reader-address: true # ReaderAddress.yml
 no-action-verb-for-a-setting: false
 verb-over-copula: false
 no-classifying-predicate: true # ClassifyingPredicate.yml
-modals: true # Modals.yml, also a counterfactual "would"
 requirement-with-must: false
 rejected-design: false
 no-ing-clause-after-a-comma: true # IngClause.yml
