@@ -183,7 +183,13 @@ The shape of the record changes in the next release.
 
 The run pins the definition hash.
 
+The memo prefix that both runtimes pin, and the run, share one store.
+
+The commit pins everything at once.
+
 The manifest lists a pinned dependency.
+
+The worker polls the pinned future.
 
 The scan proves that the prefix is empty.
 

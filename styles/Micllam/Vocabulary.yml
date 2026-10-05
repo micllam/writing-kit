@@ -53,7 +53,7 @@ swap:
   'whatever': 'any, every, or state the set'
   'answer(s|ed|ing)?': 'returns, reports, replies with, or state the response'
   'verdicts?': 'outcome, result, failure, or state what was decided'
-  '(pin(s|ning)? (the|a|an|its|that|this)|pinned (hash|definition|version))': 'records, fixed at, or state the field'
+  '(pin(s|ning)?|pinned (hash|definition|version))': 'records, fixed at, or state the field'
   'stamp(s|ed|ing)?': 'is recorded at, is dated, sets, writes'
   'stands? in for': 'is used in place of, or state which one is kept'
   'at the same': 'a sentence that states the field is unchanged'
