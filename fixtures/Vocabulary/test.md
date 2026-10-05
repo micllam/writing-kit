@@ -203,6 +203,10 @@ The transaction is open. A later claim takes it.
 
 The worker takes it as an argument.
 
+A failed call lacks a result.
+
+The result of a failed call is missing, and the entry does not have a record.
+
 The scan proves that the prefix is empty.
 
 The worker retries since the lease expired.

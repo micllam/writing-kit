@@ -49,6 +49,7 @@ answer: true
 verdict: true
 pin: true
 takes-it: true
+lack: true
 stamp: true
 stands-in-for: true
 at-the-same: true

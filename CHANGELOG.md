@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   case" as a noun and "lower-case" before a noun, and the same for "upper case".
 - `Micllam.Vocabulary` reports "takes it" after a method name, the parameter
   sense. State the parameter in its place.
+- `Micllam.Vocabulary` reports `lack` and `lacks`. Write "is missing" or "does
+  not have" in their place.
 
 ### Fixed
 
