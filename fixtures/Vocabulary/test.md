@@ -175,6 +175,9 @@ The caller needs to close the handle.
 
 A project that uses the entries will need to add a rule in its own style.
 
+A project that uses the entries of this package in a style of its own will
+need to add a rule.
+
 The agent runs next to the server.
 
 The lock file is next to the data file.

@@ -20,6 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.Vocabulary` reports "takes it" after a method name, the parameter
   sense. State the parameter in its place.
 
+### Fixed
+
+- `Micllam.Vocabulary` permits "will need to" with a line break after "will". A
+  project can wrap the phrase at any word.
+
 ## [0.3.1] - 2026-10-01
 
 ### Fixed
