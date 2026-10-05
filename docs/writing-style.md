@@ -72,8 +72,6 @@ that the package does not check.
 - Six sentences maximum per paragraph and one topic per paragraph, with two to
   four sentences in a book or a README. Split a longer paragraph at its topic
   change.
-- Simple tenses. No present perfect ("has been sent" becomes "is sent") and no
-  progressive passive.
 - Active voice by default, with the component named as the actor ("the cache
   evicts the entry"). In descriptive prose a passive is correct when its subject
   is the paragraph's topic and the actor is named in the paragraph. In a

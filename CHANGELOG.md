@@ -22,6 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.Vocabulary` reports `lack` and `lacks`. Write "is missing" or "does
   not have" in their place.
 
+### Removed
+
+- `Micllam.PresentPerfect` is removed, and the style permits the present perfect
+  and the progressive passive. A setting such as `Micllam.PresentPerfect = NO`
+  in a `.vale.ini` no longer has an effect, and a project can remove it.
+
 ### Fixed
 
 - `Micllam.Vocabulary` permits "will need to" with a line break after "will". A

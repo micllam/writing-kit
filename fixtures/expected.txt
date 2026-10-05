@@ -2,7 +2,6 @@ package/CHANGELOG.md:7:1:Micllam.ChangelogList:No blank line between CHANGELOG e
 package/COMMIT_probe.txt:1:1:Micllam.CommitSubject:Commit subject: one line without a full stop, then a blank line
 package/COMMIT_probe.txt:3:12:Micllam.Modals:Modals are can, will and must: 'should'
 package/COMMIT_probe.txt:3:33:Micllam.Vocabulary:'because' for 'since'
-package/COMMIT_probe.txt:3:49:Micllam.PresentPerfect:Simple tenses, no present perfect: 'has been'
 package/notes.md:1:12:Micllam.Modals:Modals are can, will and must: 'should'
 package/notes.md:7:1:Micllam.WrapMarkdown:Line over 80 columns
 package/notes.txt:1:12:Micllam.Modals:Modals are can, will and must: 'should'

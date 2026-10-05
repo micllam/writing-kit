@@ -2,7 +2,6 @@
 
 sentence-length: false
 paragraph-length: false
-simple-tenses: true # PresentPerfect.yml
 active-voice: false
 no-reader-address: true # ReaderAddress.yml
 no-action-verb-for-a-setting: false
