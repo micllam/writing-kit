@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   sense. State the parameter in its place.
 - `Micllam.Vocabulary` reports `lack` and `lacks`. Write "is missing" or "does
   not have" in their place.
+- The style starts a rejected alternative in a commit body with "Rejected:".
+  Identify the design after the label and state its problem in one sentence.
 
 ### Removed
 

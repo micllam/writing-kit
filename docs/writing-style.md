@@ -62,6 +62,9 @@ that the package does not check.
 - The body states only what the diff does not show: the reason, a rejected
   alternative or a non-obvious consequence. It does not describe how the new
   code works, and it does not narrate the work that led to the change.
+- A rejected alternative starts with "Rejected:", identifies the design and
+  states its problem in one sentence ("Rejected: KV keys for the records. A
+  staged write would have become visible only at settlement").
 - A blank line separates the subject from the body, and every line of the
   message is within 72 columns.
 
