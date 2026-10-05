@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.Vocabulary` reports `pin`, `pins` and `pinning` in every position,
   where 0.3.1 reported them before an article or a demonstrative only. Reword
   each sentence that the rule reports.
+- The style excludes `one` as an article where the count is not the point. Write
+  "a" or "an" in its place.
 
 ## [0.3.1] - 2026-10-01
 

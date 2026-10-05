@@ -44,6 +44,7 @@ name-as-a-verb: true
 echo: true
 arm: true
 whatever: true
+one-as-an-article: false
 answer: true
 verdict: true
 pin: true

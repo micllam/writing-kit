@@ -224,6 +224,8 @@ Avoid, and write instead:
 - arm, arms, armed, re-arms (of a timer or a deadline): schedules, sets, or
   state the deadline. A match arm is the standard sense and stays
 - whatever (as a determiner): any, every, or state the set
+- one (as an article, where the count is not the point): a, an, as in "the step
+  job of a run". A count stays: "one step job per run"
 - answer, answers (of a request, a read, a store or a component, including
   "answer 400"): returns, reports, replies with, or state the response. A
   question is answered by a person only

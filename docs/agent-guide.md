@@ -107,6 +107,8 @@ lead-in of each rule matches its key in `coverage/`.
 - **Costs.** `costs X`, `pay a cost`, `tax` (of an operation, a loss, a choice
   or a design): state the literal cost (a count of reads, writes, scans or lock
   acquisitions) or identify the operation or what is avoided.
+- **One as an article.** `one` as an article where the count is not the point:
+  a, an ("the step job of a run"). A count stays ("one step job per run").
 - **Floor, envelope.** `floor`: lower bound. `envelope`: range, profile.
 - **Collapse.** `collapse` (of a metric): fall.
 - **Just and glue.** Delete `just` and `glue` outright.
