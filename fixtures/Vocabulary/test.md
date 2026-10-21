@@ -211,6 +211,10 @@ The attempt has a budget of 25 minutes.
 
 The error budget of the service is 0.1 per cent.
 
+The runtime does not honour a cancellation request for a dead step.
+
+For a dead step, `cancel` returns `false`.
+
 The scan proves that the prefix is empty.
 
 The worker retries since the lease expired.

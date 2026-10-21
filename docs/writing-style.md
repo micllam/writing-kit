@@ -239,6 +239,9 @@ Avoid, and write instead:
 - lack, lacks (of a value, a field or a record): is missing, does not have
 - budget (of time, a count or a resource): time limit, limit, or state the
   quantity. An error budget is the standard sense and stays
+- honour, honours, honoured (of a request, a setting or a contract): state the
+  literal effect, as in "the runtime cancels the run" or "`cancel` returns
+  `false`"
 - stamp, stamped (of a time): is recorded at, is dated. Of a field: sets, writes
 - stands in for: is used in place of, or state which one is kept
 - at the same version, at the same X (as a trailing qualifier): a sentence that

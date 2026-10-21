@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `Micllam.Vocabulary` reports `budget` and its forms, except in "error budget".
   Write "time limit" or "limit" in their place, or state the quantity.
+- `Micllam.Vocabulary` reports `honour` and its forms. State the literal effect
+  of the request or the setting in their place.
 
 ## [0.4.0] - 2026-10-05
 

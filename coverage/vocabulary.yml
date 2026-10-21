@@ -51,6 +51,7 @@ pin: true
 takes-it: true
 lack: true
 budget: true
+honour: true
 stamp: true
 stands-in-for: true
 at-the-same: true
