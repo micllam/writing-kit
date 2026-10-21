@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `Micllam.Vocabulary` reports `budget` and its forms, except in "error budget".
+  Write "time limit" or "limit" in their place, or state the quantity.
+
 ## [0.4.0] - 2026-10-05
 
 ### Changed
@@ -86,10 +91,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+<!-- vale off -->
 - The vocabulary entries of a job queue (parked, make-up, stopped beating, retry
   budget, takes back, mailbox and terminal prefix) are removed from the style
   and from `Micllam.Vocabulary`. A project that uses them will need to add a
   substitution rule in its own style.
+<!-- vale on -->
 
 ### Fixed
 

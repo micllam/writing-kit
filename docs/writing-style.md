@@ -237,6 +237,8 @@ Avoid, and write instead:
 - takes it, takes them (of a method and its parameter): state the parameter, as
   in "the key order of a `kv_scan` listing"
 - lack, lacks (of a value, a field or a record): is missing, does not have
+- budget (of time, a count or a resource): time limit, limit, or state the
+  quantity. An error budget is the standard sense and stays
 - stamp, stamped (of a time): is recorded at, is dated. Of a field: sets, writes
 - stands in for: is used in place of, or state which one is kept
 - at the same version, at the same X (as a trailing qualifier): a sentence that

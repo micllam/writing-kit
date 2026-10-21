@@ -50,6 +50,7 @@ verdict: true
 pin: true
 takes-it: true
 lack: true
+budget: true
 stamp: true
 stands-in-for: true
 at-the-same: true

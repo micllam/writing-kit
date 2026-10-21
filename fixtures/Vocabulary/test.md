@@ -207,6 +207,10 @@ A failed call lacks a result.
 
 The result of a failed call is missing, and the entry does not have a record.
 
+The attempt has a budget of 25 minutes.
+
+The error budget of the service is 0.1 per cent.
+
 The scan proves that the prefix is empty.
 
 The worker retries since the lease expired.

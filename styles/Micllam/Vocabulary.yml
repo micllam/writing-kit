@@ -56,6 +56,7 @@ swap:
   '(pin(s|ning)?|pinned (hash|definition|version))': 'records, fixed at, or state the field'
   '(?<=\*\s)takes (it|them)': 'state the parameter, as in "the key order of a `kv_scan` listing"'
   'lack(s|ed|ing)?': 'is missing, does not have'
+  '(?<!error )budget(s|ed|ing)?': 'time limit, limit, or state the quantity'
   'stamp(s|ed|ing)?': 'is recorded at, is dated, sets, writes'
   'stands? in for': 'is used in place of, or state which one is kept'
   'at the same': 'a sentence that states the field is unchanged'
