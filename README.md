@@ -12,7 +12,7 @@ Vale 3.23.0 or later.
 |---|---|
 | [`docs/writing-style.md`](docs/writing-style.md) | The writing style: content, CHANGELOG entries, commit messages, sentences, punctuation and vocabulary |
 | [`docs/agent-guide.md`](docs/agent-guide.md) | The rules of the style that the package does not check, for the instructions that an agent reads in every session |
-| [`styles/Micllam/`](styles/Micllam/) | 30 rules, one per concept of the style |
+| [`styles/Micllam/`](styles/Micllam/) | The rules, one per concept of the style |
 | [`styles/config/scripts/`](styles/config/scripts/) | The Tengo scripts of the wrap, title-comment and CHANGELOG rules |
 | [`.vale.ini`](.vale.ini) | The configuration of the package: the file types that each rule applies to |
 | [`meta.json`](meta.json) | The Vale version that the package requires |
