@@ -1,0 +1,3 @@
+queue: update lockfile, then theme
+
+The worker retries the task once.

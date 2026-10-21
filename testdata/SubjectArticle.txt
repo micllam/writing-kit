@@ -1,0 +1,2 @@
+COMMIT_article.txt:1:15:Micllam.SubjectArticle:Commit subject without "the": 'the'
+COMMIT_article.txt:1:31:Micllam.SubjectArticle:Commit subject without "the": 'the'

@@ -1,0 +1,3 @@
+queue: update the lockfile of the workspace
+
+The worker retries the task once.

@@ -1,0 +1,8 @@
+extends: existence
+message: 'Commit subject without "the": ''%s'''
+level: error
+link: https://github.com/micllam/writing-kit/blob/master/docs/writing-style.md#commit-messages
+ignorecase: true
+scope: raw
+raw:
+  - '(?<=\A[^\n]*)\bthe\b'

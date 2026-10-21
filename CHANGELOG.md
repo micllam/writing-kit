@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Micllam.Vocabulary` reports `honour` and its forms. State the literal effect
   of the request or the setting in their place.
 
+### Added
+
+- `Micllam.SubjectArticle` reports "the" in the subject of a commit message.
+  Remove the article from the subject.
+
 ## [0.4.0] - 2026-10-05
 
 ### Changed

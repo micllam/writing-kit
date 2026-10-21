@@ -59,6 +59,8 @@ that the package does not check.
   subject is `area: summary` in the imperative, in lower case after the prefix
   and without a full stop. It is under 50 characters where possible and never
   over 72.
+- In every repository, the subject omits "the" ("readme: drop rule count"). The
+  body keeps its articles.
 - The body states only what the diff does not show: the reason, a rejected
   alternative or a non-obvious consequence. It does not describe how the new
   code works, and it does not narrate the work that led to the change.
@@ -101,7 +103,7 @@ that the package does not check.
 - In procedural text, a condition comes before the instruction it applies to,
   with a comma. In descriptive prose the condition goes where the emphasis
   belongs.
-- Complete grammar: no contractions, and keep articles.
+- Complete grammar: no contractions, and keep articles outside a commit subject.
 - No pronoun standing for a type, a value or a record ("every builder takes
   one", "the field is one", "compares with one"). Name the type or the value, or
   restate the relation ("the parameter type of every builder").
