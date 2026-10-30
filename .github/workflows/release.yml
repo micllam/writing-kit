@@ -15,11 +15,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Install Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
-
       - name: Install Vale
         env:
           GH_TOKEN: ${{ github.token }}
@@ -36,13 +31,10 @@ jobs:
           tar -xzf "$archive" vale
           sudo install vale /usr/local/bin/vale
 
-      - name: Run the Go tests
-        run: go test ./...
-
-      - name: Test the package
+      - name: Run the tests
         env:
           PACKAGE_REF: ${{ github.ref_name }}
-        run: ./scripts/test.sh
+        run: python3 -m unittest
 
       - name: Install parse-changelog
         uses: taiki-e/install-action@e407f7bafb71fd004bc5c2da3032e5470cbb6ef0 # v2.87.24

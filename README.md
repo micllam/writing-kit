@@ -22,7 +22,8 @@ Vale 3.23.0 or later.
 | [`fixtures/package/`](fixtures/package/) | A sample of each file type that the configuration of the package distinguishes |
 | [`fixtures/valid/`](fixtures/valid/) | Markdown and Rust files that must not produce an alert |
 | [`fixtures/expected.txt`](fixtures/expected.txt) | The alerts of `fixtures/package/` |
-| [`scripts/`](scripts/) | The scripts that build and test `dist/Micllam.zip` |
+| [`scripts/package.sh`](scripts/package.sh) | The script that builds `dist/Micllam.zip` |
+| [`tests/`](tests/) | The tests of the rules and the package |
 
 ## Use
 
@@ -110,31 +111,11 @@ to the Vocabulary section of the style and to `Vocabulary.yml`.
 
 ## Tests
 
-`go test ./...` runs Vale in the fixture folder of each rule in `styles/` and
-fails when the alerts differ from the file of the rule in `testdata/`, or when a
-rule does not have a fixture. `go test ./... -update` records the new alerts
-after a change to a rule. The test also fails when a value in `coverage/` is not
-`true` or `false`, when a comment refers to a rule that does not exist, when no
-manifest refers to a rule or when the lead-ins of `docs/agent-guide.md` differ
-from the keys that are `false` in `coverage/`. It requires Go and `vale`.
-
-`scripts/test.sh` builds the package, installs it in a temporary project and
-runs it on `fixtures/valid/`, `README.md`, `CHANGELOG.md`, `docs/agent-guide.md`
-and `fixtures/package/`. Only this test reads the configuration of the package
-in `.vale.ini`. It fails on each of these conditions:
-
-- A valid fixture, the README, the CHANGELOG or the agent guide produces an
-  alert.
-- The alerts of `fixtures/package/` differ from `fixtures/expected.txt`.
-- The README does not state the Vale version of `meta.json` in its text and its
-  CI example.
-- The README lists the package at a version other than the last section of
-  `CHANGELOG.md`.
-- The installed rules do not link to the style at `PACKAGE_REF`, `master` by
-  default.
-
-After a change to `.vale.ini`, the command `scripts/test.sh --update` writes the
-new alerts to `fixtures/expected.txt`. The test requires `vale` and `zip`.
+Run the tests with `python3 -m unittest`, and a single module with its name,
+such as `python3 -m unittest tests.test_rules`. They require Python 3.9 or
+later, `vale` and `zip`. After a change to a rule or to `.vale.ini`, run the
+command with `UPDATE_ALERTS=1` set. The tests then write the new alerts to
+`testdata/` and `fixtures/expected.txt`.
 
 ## Release
 
