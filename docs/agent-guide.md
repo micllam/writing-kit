@@ -15,11 +15,13 @@ lead-in of each rule matches its key in `coverage/`.
   manual. Do not use conversational or informal phrasing ("takes the hit", "the
   queue is happy"). The vocabulary list of the style covers the recurring cases,
   and a phrase absent from the list is not permitted by its absence.
-- **No rationale in comments.** In a docstring or comment, do not list call
-  sites, argue for the choice, describe the alternative or narrate the
-  mechanism. Put rationale in the commit message or in a decision record. Treat
-  a comment longer than the code it explains as a signal to move or delete the
-  explanation.
+- **No design rationale.** In a docstring, a comment, a README or a book, do not
+  argue for a design choice, describe a rejected alternative or narrate the
+  mechanism. Put that rationale in the commit message or in a decision record.
+  Keep a sentence that states what a public API is for or when to use it. Keep
+  the reason that goes with an instruction to the reader. Do not list call sites
+  in a comment, and treat a comment longer than its code as a signal to move or
+  delete the explanation.
 - **Current behaviour.** Write current behaviour. Do not write historical
   narrative or negative space (what a record no longer includes).
 - **Cross-references.** Cross-reference only when the reader needs the link. A

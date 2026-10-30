@@ -2,7 +2,7 @@
 
 essential-only: false
 formal-register: false
-no-rationale-in-comments: false
+no-design-rationale: false
 current-behaviour: false
 cross-references: false
 no-pointer-above-below: true # AboveBelow.yml

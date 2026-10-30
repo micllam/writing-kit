@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   fact. Write the progressive for the state of an instance, "will" for a planned
   action, the present perfect for a state that a past event produced and the
   past for a dated event.
+- The style excludes design rationale from a README and a book, and keeps a
+  sentence that states the purpose of a public API. Move the rationale of a
+  README or a book to a commit message or a decision record.
 
 ### Added
 
