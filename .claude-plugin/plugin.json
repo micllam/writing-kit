@@ -1,0 +1,4 @@
+{
+  "name": "writing-kit",
+  "description": "The prose-check skill and an edit hook that run the Vale package Micllam on prose."
+}

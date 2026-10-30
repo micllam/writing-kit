@@ -4,7 +4,8 @@ The writing style in `docs/writing-style.md` and the Vale package `Micllam`,
 which checks the rules of the style that a pattern can match: excluded words,
 sentence forms, spelling and formatting. Each rule links to the section of the
 style it enforces, and Vale shows the link with the alert. The package requires
-Vale 3.23.0 or later.
+Vale 3.23.0 or later. A Claude Code plugin runs the package on the prose that an
+agent writes.
 
 ## Layout
 
@@ -23,7 +24,10 @@ Vale 3.23.0 or later.
 | [`fixtures/valid/`](fixtures/valid/) | Markdown and Rust files that must not produce an alert |
 | [`fixtures/expected.txt`](fixtures/expected.txt) | The alerts of `fixtures/package/` |
 | [`scripts/package.py`](scripts/package.py) | The script that builds `dist/Micllam.zip` |
-| [`tests/`](tests/) | The tests of the rules and the package |
+| [`tests/`](tests/) | The tests of the rules, the package and the plugin |
+| [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | The manifest of the Claude Code plugin |
+| [`skills/prose-check/`](skills/prose-check/) | The skill of the plugin, with the script that runs the package in its `scripts/` |
+| [`hooks/`](hooks/) | The edit hook of the plugin and its `hooks.json` |
 
 ## Use
 
@@ -90,6 +94,35 @@ of a docstring or the topic of a paragraph. A project applies those in review,
 and `docs/agent-guide.md` collects them for the instructions of an agent, whose
 other prose rules the package reports on each edit.
 
+## Plugin
+
+The Claude Code plugin `writing-kit` requires Vale 3.23.0 or later and Python
+3.9 or later. To load the plugin, start a session with the path of a checkout of
+this repository:
+
+```bash
+claude --plugin-dir path/to/writing-kit
+```
+
+To load the plugin in every session, set `CLAUDE_CODE_PLUGIN_DIRS` to the path
+of the checkout. Claude Code loads the checkout in place, so a change to the
+checkout takes effect at the next session.
+
+The skill `prose-check` of the plugin runs the package on the named files and on
+the files in the named folders. Its script exits with status 1 when Vale reports
+an alert, and with status 2 when Vale fails or the command does not have a path.
+
+The hook of the plugin runs the script on each file that `Edit` or `Write`
+changes, and returns the alerts to the agent. Vale checks the file types that
+the configuration selects and skips the others. The hook runs the script from
+the folder of the nearest `.vale.ini` above the file, or else from the folder of
+the file.
+
+The script uses the `.vale.ini` of the project when the project has one and its
+`StylesPath` exists, and the `.vale.ini` of the checkout otherwise. For a
+`StylesPath` that does not exist, the script also prints a warning to run
+`vale sync`.
+
 ## Coverage
 
 The files in `coverage/` list the rules of `docs/writing-style.md` by section. A
@@ -116,6 +149,11 @@ such as `python3 -m unittest tests.test_rules`. They require Python 3.9 or later
 and `vale`. After a change to a rule or to `.vale.ini`, run the command with
 `UPDATE_ALERTS=1` set. The tests then write the new alerts to `testdata/` and
 `fixtures/expected.txt`.
+
+`tests/test_plugin.py` runs the hook without Claude Code. After a change to
+`.claude-plugin/plugin.json`, `hooks/hooks.json` or the layout of the plugin,
+run `claude plugin validate .` to check the manifests. Then start a session with
+`--plugin-dir` and check that Claude Code loads the skill and runs the hook.
 
 ## Release
 
