@@ -91,10 +91,11 @@ that the package does not check.
   clause ("is a state that", "is a case where"). Name the actor and state the
   fact with a verb: "the runtime does not write a pointer without its job",
   never "a pointer without its job is a state that no runtime write produces".
-- State a requirement with "must", "require" or "will need to", never with a
-  plain present verb ("a caller sets `timeout`"). When a type imposes the
-  requirement, make the type the subject ("`SubprocessParams` and `ShellParams`
-  require `timeout`").
+- State a requirement with "must", "require" or "will need to" and a
+  recommendation with "should". Never state an action that the reader takes with
+  a plain present verb ("a caller sets `timeout`", "a sender delays a run with
+  `run_at`"). When a type imposes the requirement, make the type the subject
+  ("`SubprocessParams` and `ShellParams` require `timeout`").
 - A rejected design gets one counterfactual sentence, or a sentence that states
   what the design prevents ("The lock prevents two writers from overwriting each
   other"). A longer description of that design is in the present tense.

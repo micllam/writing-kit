@@ -75,9 +75,10 @@ lead-in of each rule matches its key in `coverage/`.
   ("the operator kills the program").
 - **Verb over copula.** A verb over a copula that equates two noun phrases: "the
   invoice is issued at the deadline", never "the issue time is the deadline".
-- **Requirement with must.** State a requirement with "must", "require" or
-  "will need to", never with a plain present verb ("a caller sets `timeout`").
-  When a type imposes the requirement, make the type the subject.
+- **Must and should.** State a requirement with "must", "require" or "will need
+  to" and a recommendation with "should". Never state an action that the reader
+  takes with a plain present verb ("a caller sets `timeout`"). When a type
+  imposes the requirement, make the type the subject.
 - **Rejected design.** A rejected design gets one counterfactual sentence, or a
   sentence that states what the design prevents. A longer description of that
   design is in the present tense.

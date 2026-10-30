@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Write "time limit" or "limit" in their place, or state the quantity.
 - `Micllam.Vocabulary` reports `honour` and its forms. State the literal effect
   of the request or the setting in their place.
+- The style states a recommendation to the reader with "should", as it states a
+  requirement with "must". Reword a recommendation in a plain present verb, such
+  as "a sender delays a run", with "should".
 
 ### Added
 
