@@ -1,25 +1,32 @@
 #!/usr/bin/env python3
-"""Builds dist/Micllam.zip, whose single folder Micllam/ contains .vale.ini,
-meta.json, styles/ and LICENSE. The link of each rule points at the style at
-the Git ref PACKAGE_REF, master by default.
+"""Builds the package Micllam.zip, whose single folder Micllam/ contains
+.vale.ini, meta.json, styles/ and LICENSE. The link of each rule points at the
+style at the Git ref PACKAGE_REF, master by default.
+
+Usage: package.py FILE    writes the package to FILE
 """
 
 import os
+import sys
 import zipfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 RULES = REPO / "styles" / "Micllam"
+USAGE = "usage: package.py FILE"
 
 
 def main():
+    if len(sys.argv) != 2:
+        print(USAGE, file=sys.stderr)
+        return 2
     ref = os.environ.get("PACKAGE_REF", "master")
+    output = Path(sys.argv[1])
     paths = [REPO / ".vale.ini", REPO / "meta.json", REPO / "styles",
              *sorted((REPO / "styles").rglob("*")), REPO / "LICENSE"]
 
-    (REPO / "dist").mkdir(exist_ok=True)
-    with zipfile.ZipFile(REPO / "dist" / "Micllam.zip", "w",
-                         zipfile.ZIP_DEFLATED) as archive:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as archive:
         archive.write(REPO, "Micllam")
         for path in paths:
             name = f"Micllam/{path.relative_to(REPO).as_posix()}"
@@ -31,7 +38,8 @@ def main():
                                  zipfile.ZIP_DEFLATED)
             else:
                 archive.write(path, name)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

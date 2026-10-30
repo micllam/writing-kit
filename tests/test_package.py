@@ -1,10 +1,10 @@
 """Tests of the package that scripts/package.py builds, and of the versions
 that the README states.
 
-PackageTest installs dist/Micllam.zip into a temporary project and runs it on
-the fixtures. Only this test reads the configuration of the package in
-.vale.ini. With UPDATE_ALERTS=1, the test writes the alerts of fixtures/package
-to fixtures/expected.txt.
+PackageTest installs the zip file that PACKAGE_ZIP names, or a package that it
+builds, into a temporary project and runs it on the fixtures. Only this test
+reads the configuration of the package in .vale.ini. With UPDATE_ALERTS=1, the
+test writes the alerts of fixtures/package to fixtures/expected.txt.
 """
 
 import json
@@ -44,11 +44,16 @@ class ReadmeTest(unittest.TestCase):
 class PackageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        subprocess.run([REPO / "scripts" / "package.py"], check=True)
         temp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(temp.cleanup)
         cls.project = Path(temp.name)
-        shutil.copy(REPO / "dist" / "Micllam.zip", cls.project)
+        package = cls.project / "Micllam.zip"
+        if "PACKAGE_ZIP" in os.environ:
+            shutil.copy(os.environ["PACKAGE_ZIP"], package)
+        else:
+            subprocess.run(
+                [REPO / "scripts" / "package.py", package], check=True
+            )
         for folder in ("valid", "package"):
             shutil.copytree(REPO / "fixtures" / folder, cls.project / folder)
         for file in ("README.md", "CHANGELOG.md", "docs/agent-guide.md"):
@@ -56,7 +61,7 @@ class PackageTest(unittest.TestCase):
         (cls.project / ".vale.ini").write_text(
             "StylesPath = .vale/styles\n"
             "MinAlertLevel = suggestion\n"
-            f"Packages = {cls.project / 'Micllam.zip'}\n"
+            f"Packages = {package}\n"
         )
         subprocess.run(
             ["vale", "--no-global", "sync"], cwd=cls.project, check=True,

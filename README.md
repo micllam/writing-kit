@@ -23,7 +23,7 @@ agent writes.
 | [`fixtures/package/`](fixtures/package/) | A sample of each file type that the configuration of the package distinguishes |
 | [`fixtures/valid/`](fixtures/valid/) | Markdown and Rust files that must not produce an alert |
 | [`fixtures/expected.txt`](fixtures/expected.txt) | The alerts of `fixtures/package/` |
-| [`scripts/package.py`](scripts/package.py) | The script that builds `dist/Micllam.zip` |
+| [`scripts/package.py`](scripts/package.py) | The script that builds the package `Micllam.zip` |
 | [`tests/`](tests/) | The tests of the rules, the package and the plugin |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | The manifest of the Claude Code plugin |
 | [`skills/prose-check/`](skills/prose-check/) | The skill of the plugin, with the script that runs the package in its `scripts/` |
@@ -164,11 +164,12 @@ run `claude plugin validate .` to check the manifests. Then start a session with
 ## Release
 
 The release commit must add the section of the version to `CHANGELOG.md` and set
-the version in the `Packages` URL of this README. A tag that starts with `v`
-then runs the release workflow, which tests the package with `PACKAGE_REF` set
-to the tag. The workflow attaches the tested `Micllam.zip` to a GitHub release
-whose notes are that section, and fails without the section. Each rule of the
-release links to the style at the tag.
+the version in the `Packages` URL of this README. A change to the rules, the
+configuration, the style or the Vale requirement must have an entry in
+`CHANGELOG.md`.
 
-A change to the rules, the configuration, the style or the Vale requirement must
-have an entry in `CHANGELOG.md`.
+A tag that starts with `v` runs the release workflow. Its first job runs the
+test workflow with `PACKAGE_REF` set to the tag, which builds and tests
+`Micllam.zip`. The second job attaches the tested zip to a GitHub release whose
+notes are the section of the version, and fails without the section. Each rule
+of the release links to the style at the tag.
