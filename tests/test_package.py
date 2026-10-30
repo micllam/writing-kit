@@ -1,4 +1,4 @@
-"""Tests of the package that scripts/package.sh builds, and of the versions
+"""Tests of the package that scripts/package.py builds, and of the versions
 that the README states.
 
 PackageTest installs dist/Micllam.zip into a temporary project and runs it on
@@ -44,7 +44,7 @@ class ReadmeTest(unittest.TestCase):
 class PackageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        subprocess.run([REPO / "scripts" / "package.sh"], check=True)
+        subprocess.run([REPO / "scripts" / "package.py"], check=True)
         temp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(temp.cleanup)
         cls.project = Path(temp.name)

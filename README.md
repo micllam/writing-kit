@@ -22,7 +22,7 @@ Vale 3.23.0 or later.
 | [`fixtures/package/`](fixtures/package/) | A sample of each file type that the configuration of the package distinguishes |
 | [`fixtures/valid/`](fixtures/valid/) | Markdown and Rust files that must not produce an alert |
 | [`fixtures/expected.txt`](fixtures/expected.txt) | The alerts of `fixtures/package/` |
-| [`scripts/package.sh`](scripts/package.sh) | The script that builds `dist/Micllam.zip` |
+| [`scripts/package.py`](scripts/package.py) | The script that builds `dist/Micllam.zip` |
 | [`tests/`](tests/) | The tests of the rules and the package |
 
 ## Use
@@ -112,10 +112,10 @@ to the Vocabulary section of the style and to `Vocabulary.yml`.
 ## Tests
 
 Run the tests with `python3 -m unittest`, and a single module with its name,
-such as `python3 -m unittest tests.test_rules`. They require Python 3.9 or
-later, `vale` and `zip`. After a change to a rule or to `.vale.ini`, run the
-command with `UPDATE_ALERTS=1` set. The tests then write the new alerts to
-`testdata/` and `fixtures/expected.txt`.
+such as `python3 -m unittest tests.test_rules`. They require Python 3.9 or later
+and `vale`. After a change to a rule or to `.vale.ini`, run the command with
+`UPDATE_ALERTS=1` set. The tests then write the new alerts to `testdata/` and
+`fixtures/expected.txt`.
 
 ## Release
 
