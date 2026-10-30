@@ -31,17 +31,17 @@ agent writes.
 
 ## Use
 
-A project lists the package in its `.vale.ini`:
+List the package in the `.vale.ini` of the project:
 
 ```ini
 StylesPath = .vale/styles
 Packages = https://github.com/micllam/writing-kit/releases/download/v0.4.0/Micllam.zip
 ```
 
-Run `vale sync` after a clone and after a change to `Packages`. An upgrade of
-the package is a change to the version in `Packages`, and the section of
-`CHANGELOG.md` for the new version lists the changes to the rules. The
-configuration of the package selects the rules by file type:
+Run `vale sync` after a clone and after a change to `Packages`. To upgrade the
+package, change the version in `Packages`. The section of `CHANGELOG.md` for the
+new version lists the changes to the rules. The configuration of the package
+selects the rules by file type:
 
 - Markdown: every rule, with lines wrapped at 80 columns. The list rule runs on
   `CHANGELOG.md` only, and a fenced code block is code.
@@ -55,18 +55,18 @@ configuration of the package selects the rules by file type:
 - Shell, TOML and Python: the comment wrap and section-divider rules only.
 - Any other file type: no rule.
 
-A project adds its own rules as a second style in `StylesPath`, such as a
-substitution rule for the vocabulary of its domain, and lists both styles in
-each section of its `.vale.ini`. A section that lists the project style alone
-disables the package for that file type.
+Add the rules of the project, such as a substitution rule for its vocabulary, as
+a second style in `StylesPath`. List both styles in each section of the
+`.vale.ini`, because a section that lists the project style alone disables the
+package for that file type.
 
 ```ini
 [*.{md,rs}]
 BasedOnStyles = Micllam, Project
 ```
 
-`vale sync` writes the package into `StylesPath`. A project commits its own
-style folder and ignores the other contents of `StylesPath` in Git.
+`vale sync` writes the package into `StylesPath`. Commit the style folder of the
+project, and ignore the other contents of `StylesPath` in Git.
 
 A `<!-- vale off -->` marker in a Markdown file must have a closing
 `<!-- vale on -->` marker, even at the end of the file. Without the closing
@@ -78,8 +78,8 @@ annotation. On a pull request it checks the added lines, and on a push it checks
 the whole repository. GitHub shows at most ten annotations of a step, and the
 job log lists every alert.
 
-A project refers to each action by its commit hash, as the workflows of this
-repository do, and sets the Vale version of `meta.json`:
+Refer to each action by its commit hash, as the workflows of this repository do,
+and set the Vale version of `meta.json`:
 
 ```yaml
 - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -90,8 +90,8 @@ repository do, and sets the Vale version of `meta.json`:
 ```
 
 The style also states the rules that a pattern cannot check, such as the content
-of a docstring or the topic of a paragraph. A project applies those in review,
-and `docs/agent-guide.md` collects them for the instructions of an agent, whose
+of a docstring or the topic of a paragraph. Apply those in review.
+`docs/agent-guide.md` collects them for the instructions of an agent, whose
 other prose rules the package reports on each edit.
 
 ## Plugin
@@ -131,16 +131,22 @@ a comment refers to the Vale rules that check it.
 
 ## Changing the style
 
-A change to the style is a change to `docs/writing-style.md` first. A rule in
-`styles/Micllam/` then implements one bullet of the style, and its key in
-`coverage/` records the bullet with the rule. A rule is named after its concept
-and links to its section of the style. A single substitution rule checks a word
-list such as the vocabulary, with the replacement of each entry. A new rule
-comes with its fixture and its manifest key, and the tests fail without either.
-A rule without a Vale rule is a bullet of `docs/agent-guide.md` whose bold
-lead-in matches its manifest key, and the bullet leaves the guide when the rule
-gets a Vale rule. An entry of a project style that a second project needs moves
-to the Vocabulary section of the style and to `Vocabulary.yml`.
+A change to the style must start with `docs/writing-style.md`. The rules of the
+package must then follow it:
+
+- A rule in `styles/Micllam/` must implement one bullet of the style, and its
+  key in `coverage/` must record the bullet with the rule.
+- A rule must be named after its concept and must link to its section of the
+  style.
+- A word list such as the vocabulary must be a single substitution rule, with
+  the replacement of each entry.
+- A new rule must come with its fixture and its manifest key, which the tests
+  require.
+- A rule without a Vale rule must be a bullet of `docs/agent-guide.md` whose
+  bold lead-in matches its manifest key. The bullet must leave the guide when
+  the rule gets a Vale rule.
+- An entry of a project style that a second project needs must move to the
+  Vocabulary section of the style and to `Vocabulary.yml`.
 
 ## Tests
 
@@ -157,10 +163,12 @@ run `claude plugin validate .` to check the manifests. Then start a session with
 
 ## Release
 
-The release commit adds the section of the version to `CHANGELOG.md` and sets
+The release commit must add the section of the version to `CHANGELOG.md` and set
 the version in the `Packages` URL of this README. A tag that starts with `v`
 then runs the release workflow, which tests the package with `PACKAGE_REF` set
-to the tag and attaches the tested `Micllam.zip` to a GitHub release whose notes
-are that section. Each rule of the release links to the style at the tag. The
-workflow fails without the section. An entry in `CHANGELOG.md` covers a change
-to the rules, the configuration, the style or the Vale requirement.
+to the tag. The workflow attaches the tested `Micllam.zip` to a GitHub release
+whose notes are that section, and fails without the section. Each rule of the
+release links to the style at the tag.
+
+A change to the rules, the configuration, the style or the Vale requirement must
+have an entry in `CHANGELOG.md`.
