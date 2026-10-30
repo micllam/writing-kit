@@ -79,6 +79,11 @@ lead-in of each rule matches its key in `coverage/`.
   to" and a recommendation with "should". Never state an action that the reader
   takes with a plain present verb ("a caller sets `timeout`"). When a type
   imposes the requirement, make the type the subject.
+- **Tense and aspect.** Use the simple present for a general behaviour, a kind
+  or a standing fact. Use the progressive or a participle for the state of a
+  particular instance at a time ("the job waiting for zero"). Write "will" for a
+  planned action or a decision about a future action. Use the present perfect
+  for a state that a past event produced and the past for a dated event.
 - **Rejected design.** A rejected design gets one counterfactual sentence, or a
   sentence that states what the design prevents. A longer description of that
   design is in the present tense.

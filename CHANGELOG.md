@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The style states a recommendation to the reader with "should", as it states a
   requirement with "must". Reword a recommendation in a plain present verb, such
   as "a sender delays a run", with "should".
+- The style reserves the simple present for a general behaviour or a standing
+  fact. Write the progressive for the state of an instance, "will" for a planned
+  action, the present perfect for a state that a past event produced and the
+  past for a dated event.
 
 ### Added
 

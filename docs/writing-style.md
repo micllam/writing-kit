@@ -96,6 +96,14 @@ that the package does not check.
   a plain present verb ("a caller sets `timeout`", "a sender delays a run with
   `run_at`"). When a type imposes the requirement, make the type the subject
   ("`SubprocessParams` and `ShellParams` require `timeout`").
+- Use the simple present for a general behaviour, a kind or a standing fact ("a
+  job that waits for a signal wakes at the signal"). Use the progressive or a
+  participle for the state of a particular instance at a time ("the id of the
+  job waiting for zero"). Write "will" for a planned action or a decision about
+  a future action ("the maintainer will remove the flag in the next release").
+  Use the present perfect for a state that a past event produced ("the writer
+  has released the lock") and the past for a dated event ("the store was
+  compacted on 2026-09-03").
 - A rejected design gets one counterfactual sentence, or a sentence that states
   what the design prevents ("The lock prevents two writers from overwriting each
   other"). A longer description of that design is in the present tense.

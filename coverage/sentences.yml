@@ -8,6 +8,7 @@ no-action-verb-for-a-setting: false
 verb-over-copula: false
 no-classifying-predicate: true # ClassifyingPredicate.yml
 must-and-should: false
+tense-and-aspect: false
 rejected-design: false
 no-ing-clause-after-a-comma: true # IngClause.yml
 condition-first: false
