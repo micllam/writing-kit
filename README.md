@@ -38,7 +38,7 @@ project:
 
 ```ini
 StylesPath = .vale/styles
-Packages = https://github.com/micllam/writing-kit/releases/download/v0.4.0/Micllam.zip
+Packages = https://github.com/micllam/writing-kit/releases/download/v0.5.0/Micllam.zip
 ```
 
 The package checks Markdown, plain text, commit messages and Rust comments, and
