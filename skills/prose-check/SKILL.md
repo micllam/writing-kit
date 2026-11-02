@@ -1,7 +1,6 @@
 ---
 name: prose-check
 description: Check new or named prose against the writing style with the Vale package of writing-kit. Run after writing any doc comment, README, book page, CHANGELOG entry or commit message, and again before reporting the work as done.
-allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/prose-check.py *)
 ---
 
 # prose-check

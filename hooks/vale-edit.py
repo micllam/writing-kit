@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""A PostToolUse hook for Edit and Write. Runs prose-check.py on the edited
-file from the folder of the nearest .vale.ini above the file, or else from the
-folder of the file, and returns the alerts to the agent as the hook's
-additional context. An error of Vale, such as a configuration that does not
-load, is returned in place of the alerts.
+"""A PostToolUse hook for a file edit. Reads the path of the edited file from
+tool_input.file_path, and runs prose-check.py on the file from the folder of
+the nearest .vale.ini above the file, or else from the folder of the file. It
+returns the alerts to the agent as the hook's additional context. An error of
+Vale, such as a configuration that does not load, is returned in place of the
+alerts.
 """
 
 import json
