@@ -38,7 +38,9 @@ package must then follow it:
 - A rule must be named after its concept and must link to its section of the
   style.
 - A word list such as the vocabulary must be a single substitution rule, with
-  the replacement of each entry.
+  the replacement of each entry. Each entry of the Vocabulary section with a
+  matchable form must have an entry in `Vocabulary.yml` and a line in its
+  fixture.
 - A new rule must come with its fixture and its manifest key, which the tests
   require.
 - A rule without a Vale rule must be a bullet of `docs/agent-guide.md` whose
