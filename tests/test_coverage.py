@@ -8,13 +8,9 @@ refers to the Vale rules that check it.
 import re
 import unittest
 
-from tests.support import REPO, RULES, anchor
+from tests.support import REPO, RULES, guide
 
 REF = re.compile(r"([A-Za-z]+)\.yml")
-
-# A rule of docs/agent-guide.md: a list item with a bold lead-in that ends in a
-# full stop.
-GUIDE_RULE = re.compile(r"(?m)^- \*\*([^*]+)\.\*\* ")
 
 
 def manifest_lines():
@@ -60,8 +56,13 @@ class CoverageTest(unittest.TestCase):
             with self.subTest(rule=rule.name):
                 self.assertIn(rule.stem, referred)
 
-    def test_agent_guide_states_the_unchecked_rules(self):
-        unchecked = {key for _, key, value in entries() if value == "false"}
-        guide = (REPO / "docs" / "agent-guide.md").read_text()
-        stated = {anchor(lead_in) for lead_in in GUIDE_RULE.findall(guide)}
-        self.assertSetEqual(stated, unchecked)
+    def test_each_rule_of_the_style_has_a_key(self):
+        problems = guide.mismatches(guide.STYLE.read_text(), guide.manifests())
+        self.assertEqual(problems, [])
+
+    def test_agent_guide_is_generated_from_the_style(self):
+        expected = guide.guide(guide.STYLE.read_text(), guide.manifests())
+        self.assertEqual(
+            guide.GUIDE.read_text(), expected,
+            "docs/agent-guide.md differs from the output of scripts/guide.py",
+        )

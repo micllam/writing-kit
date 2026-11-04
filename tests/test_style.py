@@ -3,7 +3,7 @@
 import re
 import unittest
 
-from tests.support import REPO, RULES, anchor
+from tests.support import REPO, RULES, guide
 
 LINK = re.compile(r"(?m)^link: .*/docs/writing-style\.md#([a-z0-9-]+)$")
 
@@ -12,7 +12,7 @@ class StyleTest(unittest.TestCase):
     def test_rule_links_to_a_section_of_the_style(self):
         style = (REPO / "docs" / "writing-style.md").read_text()
         sections = {
-            anchor(line.removeprefix("## "))
+            guide.anchor(line.removeprefix("## "))
             for line in style.splitlines()
             if line.startswith("## ")
         }

@@ -2,8 +2,8 @@
 
 The rules of [`writing-style.md`](writing-style.md) that the Vale package
 `Micllam` does not check. An agent reads this file in every session, and the
-package reports the other rules on each edit with a link to the style. The bold
-lead-in of each rule matches its key in `coverage/`.
+package reports the other rules on each edit with a link to the style.
+`scripts/guide.py` writes this file from the style and `coverage/`.
 
 ## Content
 
@@ -13,8 +13,8 @@ lead-in of each rule matches its key in `coverage/`.
   found while investigating in one or two lines, without the investigation.
 - **Formal register.** Write in a formal register throughout, as in a reference
   manual. Do not use conversational or informal phrasing ("takes the hit", "the
-  queue is happy"). The vocabulary list of the style covers the recurring cases,
-  and a phrase absent from the list is not permitted by its absence.
+  queue is happy"). The vocabulary list covers the recurring cases, and a phrase
+  absent from the list is not permitted by its absence.
 - **No design rationale.** In a docstring, a comment, a README or a book, do not
   argue for a design choice, describe a rejected alternative or narrate the
   mechanism. Put that rationale in the commit message or in a decision record.
@@ -73,30 +73,36 @@ lead-in of each rule matches its key in `coverage/`.
 - **Active voice.** Use the active voice by default, with the component named as
   the actor ("the cache evicts the entry"). In descriptive prose a passive is
   correct when its subject is the paragraph's topic and the actor is named in
-  the paragraph. Do not give a task, worker or code path a person-like verb.
+  the paragraph. In a paragraph about the entry, "the entry is evicted by the
+  cache" is correct. Do not give a task, worker or code path a person-like verb.
 - **No action verb for a setting.** Do not give a parameter, a limit or a
-  setting an action verb. Make the component that applies the value the actor
-  ("the operator kills the program").
+  setting an action verb. Make the component that applies the value the actor:
+  "the operator kills the program".
 - **Verb over copula.** Use a verb, never a copula that equates two noun
   phrases: "the invoice is issued at the deadline", never "the issue time is the
   deadline".
 - **Must and should.** State a requirement with "must", "require" or "will need
   to" and a recommendation with "should". Never state an action that the reader
-  takes with a plain present verb ("a caller sets `timeout`"). When a type
-  imposes the requirement, make the type the subject.
+  takes with a plain present verb ("a caller sets `timeout`", "a sender delays a
+  run with `run_at`"). When a type imposes the requirement, make the type the
+  subject ("`SubprocessParams` and `ShellParams` require `timeout`").
 - **Tense and aspect.** Use the simple present for a general behaviour, a kind
-  or a standing fact. Use the progressive or a participle for the state of a
-  particular instance at a time ("the job waiting for zero"). Write "will" for a
-  planned action or a decision about a future action. Use the present perfect
-  for a state that a past event produced and the past for a dated event.
+  or a standing fact ("a job that waits for a signal wakes at the signal"). Use
+  the progressive or a participle for the state of a particular instance at a
+  time ("the id of the job waiting for zero"). Write "will" for a planned action
+  or a decision about a future action ("the maintainer will remove the flag in
+  the next release"). Use the present perfect for a state that a past event
+  produced ("the writer has released the lock") and the past for a dated event
+  ("the store was compacted on 2026-09-03").
 - **Rejected design.** Give a rejected design one counterfactual sentence, or a
-  sentence that states what the design prevents. Write a longer description of
-  that design in the present tense.
+  sentence that states what the design prevents ("The lock prevents two writers
+  from overwriting each other"). Write a longer description of that design in
+  the present tense.
 - **Condition first.** In procedural text, put a condition before the
   instruction it applies to, with a comma. In descriptive prose, put the
   condition where the emphasis belongs.
 
-## Punctuation and formatting
+## Punctuation, spelling and formatting
 
 - **Bold and emoji.** Use bold only as the lead-in of a list item or a paragraph
   that states a rule or an invariant. Do not use emoji.
@@ -116,12 +122,15 @@ lead-in of each rule matches its key in `coverage/`.
 - **One term per concept.** Use one term per concept across a document: do not
   alternate between check, verify and confirm or between config and settings.
 - **Noun chains.** Break a noun chain over three words with a preposition.
-- **Strand.** `strand`: state the literal effect or condition.
-- **Costs.** `costs X`, `pay a cost`, `tax` (of an operation, a loss, a choice
-  or a design): state the literal cost (a count of reads, writes, scans or lock
-  acquisitions) or identify the operation or what is avoided.
-- **One as an article.** `one` as an article where the count is not the point:
-  a, an ("the step job of a run"). A count stays ("one step job per run").
-- **Floor, envelope.** `floor`: lower bound. `envelope`: range, profile.
-- **Collapse.** `collapse` (of a metric): fall.
-- **Just and glue.** Delete `just` and `glue` outright.
+
+Avoid, and write instead:
+
+- strand: state the literal effect or condition
+- costs X, pay a cost, tax (of an operation, a loss, a choice or a design):
+  state the literal cost (a count of reads, writes, scans or lock acquisitions)
+  or identify the operation or what is avoided
+- one (as an article, where the count is not the point): a, an, as in "the step
+  job of a run". A count stays: "one step job per run"
+- floor: lower bound. envelope: range, profile
+- collapse (of a metric): fall
+- just, glue: delete outright

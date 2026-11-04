@@ -5,7 +5,7 @@ formal-register: false
 no-design-rationale: false
 current-behaviour: false
 cross-references: false
-no-pointer-above-below: true # AboveBelow.yml
+no-pointer-above-or-below: true # AboveBelow.yml
 concept-terms: false
 no-reader-psychology: true # ReaderPsychology.yml RhetoricalQuestions.yml
 architectural-categories: false

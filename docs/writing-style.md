@@ -8,169 +8,182 @@ that the package does not check.
 
 ## Content
 
-- State the essential only: what a type or function is, its non-obvious
-  behaviour, the one fact a reader needs. Write one or two sentences for a
-  method and a short paragraph for a type or module. State a correction found
-  while investigating in one or two lines, without the investigation.
-- Write in a formal register throughout, as in a reference manual. Do not use
-  conversational or informal phrasing ("takes the hit", "the queue is happy").
-  The vocabulary list covers the recurring cases, and a phrase absent from the
-  list is not permitted by its absence.
-- In a docstring, a comment, a README or a book, do not argue for a design
-  choice, describe a rejected alternative or narrate the mechanism. Put that
-  rationale in the commit message or in a decision record. Keep a sentence that
-  states what a public API is for or when to use it. Keep the reason that goes
-  with an instruction to the reader. Do not list call sites in a comment, and
-  treat a comment longer than its code as a signal to move or delete the
-  explanation.
-- Write current behaviour. Do not write historical narrative or negative space
-  (what a record no longer includes).
-- Cross-reference only when the reader needs the link. A method on the same type
-  is discoverable without a pointer. In a pointer, identify its target or write
-  "that follows".
-- Do not point with "above" or "below".
-- Define a concept term at its first use, in under ten words, one definition per
-  sentence. Do not define product names, standard names (Postgres, S3, HTTP) or
-  the project the document is about.
-- Do not write reader-psychology narration or didactic meta-framing ("It is
-  tempting to", "Notice that", "worth internalizing", rhetorical questions).
-  Never state the plain-language goal in the text itself.
-- In public docs (READMEs, API docs, announcements), compare against
-  architectural categories, never named products. An integration target that the
-  text compliments can be named.
-- Do not write section-divider comments (a rule of dashes, equals signs or box
-  characters) or a comment that only titles a group of items. Group with
-  modules, types or blank lines, and describe the groups in the module
-  docstring.
+- **Essential only.** State the essential only: what a type or function is, its
+  non-obvious behaviour, the one fact a reader needs. Write one or two sentences
+  for a method and a short paragraph for a type or module. State a correction
+  found while investigating in one or two lines, without the investigation.
+- **Formal register.** Write in a formal register throughout, as in a reference
+  manual. Do not use conversational or informal phrasing ("takes the hit", "the
+  queue is happy"). The vocabulary list covers the recurring cases, and a phrase
+  absent from the list is not permitted by its absence.
+- **No design rationale.** In a docstring, a comment, a README or a book, do not
+  argue for a design choice, describe a rejected alternative or narrate the
+  mechanism. Put that rationale in the commit message or in a decision record.
+  Keep a sentence that states what a public API is for or when to use it. Keep
+  the reason that goes with an instruction to the reader. Do not list call sites
+  in a comment, and treat a comment longer than its code as a signal to move or
+  delete the explanation.
+- **Current behaviour.** Write current behaviour. Do not write historical
+  narrative or negative space (what a record no longer includes).
+- **Cross-references.** Cross-reference only when the reader needs the link. A
+  method on the same type is discoverable without a pointer. In a pointer,
+  identify its target or write "that follows".
+- **No pointer above or below.** Do not point with "above" or "below".
+- **Concept terms.** Define a concept term at its first use, in under ten words,
+  one definition per sentence. Do not define product names, standard names
+  (Postgres, S3, HTTP) or the project the document is about.
+- **No reader psychology.** Do not write reader-psychology narration or didactic
+  meta-framing ("It is tempting to", "Notice that", "worth internalizing",
+  rhetorical questions). Never state the plain-language goal in the text itself.
+- **Architectural categories.** In public docs (READMEs, API docs,
+  announcements), compare against architectural categories, never named
+  products. An integration target that the text compliments can be named.
+- **No section divider or title comments.** Do not write section-divider
+  comments (a rule of dashes, equals signs or box characters) or a comment that
+  only titles a group of items. Group with modules, types or blank lines, and
+  describe the groups in the module docstring.
 
 ## CHANGELOG entries
 
-- Write an entry for a change to the public surface only: API, behaviour,
-  on-disk format or dependencies. Do not write an entry for an example, a
-  benchmark or another repository addition.
-- Write an entry as one sentence for the change and its consequence for a user
-  and a second sentence for the migration.
-- Write an unreleased entry relative to the last released version. Fold a fix to
-  an unreleased feature into that feature's entry. A type that never shipped
-  does not break anything, so do not write an entry for it.
-- Put blank lines around headings only, never between bullets.
-- Append a new entry at the end of its section's list, so that a section reads
-  in the order of the changes.
-- Do not repair the entries of released versions, which are historical records.
+- **Public surface only.** Write an entry for a change to the public surface
+  only: API, behaviour, on-disk format or dependencies. Do not write an entry
+  for an example, a benchmark or another repository addition.
+- **Change and migration.** Write an entry as one sentence for the change and
+  its consequence for a user and a second sentence for the migration.
+- **Relative to last release.** Write an unreleased entry relative to the last
+  released version. Fold a fix to an unreleased feature into that feature's
+  entry. A type that never shipped does not break anything, so do not write an
+  entry for it.
+- **No blank line between bullets.** Put blank lines around headings only, never
+  between bullets.
+- **Append at end.** Append a new entry at the end of its section's list, so
+  that a section reads in the order of the changes.
+- **Released entries.** Do not repair the entries of released versions, which
+  are historical records.
 
 ## Commit messages
 
-- Write the subject in the repository's style. Without an established style,
-  write the subject as `area: summary` in the imperative, in lower case after
-  the prefix. Keep it under 50 characters where possible.
-- End the subject without a full stop, and separate it from the body with a
-  blank line.
-- In every repository, omit "the" from the subject ("readme: drop rule count").
-  Keep the articles of the body.
-- In the body, state only what the diff does not show: the reason, a rejected
-  alternative or a non-obvious consequence. Start a rejected alternative with
-  "Rejected:" and identify the design ("Rejected: KV keys for the records. A
-  staged write would have become visible only at settlement"). Do not describe
-  how the new code works or narrate the work that led to the change.
-- Keep every line of the message within 72 columns.
+- **Subject style.** Write the subject in the repository's style. Without an
+  established style, write the subject as `area: summary` in the imperative, in
+  lower case after the prefix. Keep it under 50 characters where possible.
+- **Subject line.** End the subject without a full stop, and separate it from
+  the body with a blank line.
+- **Subject article.** In every repository, omit "the" from the subject
+  ("readme: drop rule count"). Keep the articles of the body.
+- **Body content.** In the body, state only what the diff does not show: the
+  reason, a rejected alternative or a non-obvious consequence. Start a rejected
+  alternative with "Rejected:" and identify the design ("Rejected: KV keys for
+  the records. A staged write would have become visible only at settlement"). Do
+  not describe how the new code works or narrate the work that led to the
+  change.
+- **Line length.** Keep every line of the message within 72 columns.
 
 ## Sentences
 
-- Write at most 25 words in a sentence of descriptive prose and 20 in procedural
-  prose. Count an identifier or a backticked name as one word.
-- Write at most six sentences in a paragraph and one topic per paragraph, with
-  two to four sentences in a book or a README. Split a longer paragraph at its
-  topic change.
-- Use the active voice by default, with the component named as the actor ("the
-  cache evicts the entry"). In descriptive prose a passive is correct when its
-  subject is the paragraph's topic and the actor is named in the paragraph. In a
-  paragraph about the entry, "the entry is evicted by the cache" is correct. Do
-  not give a task, worker or code path a person-like verb.
-- Do not address the reader as "you".
-- Do not give a parameter, a limit or a setting an action verb. Make the
-  component that applies the value the actor: "the operator kills the program".
-- Use a verb, never a copula that equates two noun phrases: "the invoice is
-  issued at the deadline", never "the issue time is the deadline".
-- Do not write a classifying predicate that files a subject under a noun with a
-  relative clause ("is a state that", "is a case where"). Name the actor and
-  state the fact with a verb: "the runtime does not write a pointer without its
-  job", never "a pointer without its job is a state that no runtime write
-  produces".
-- State a requirement with "must", "require" or "will need to" and a
-  recommendation with "should". Never state an action that the reader takes with
-  a plain present verb ("a caller sets `timeout`", "a sender delays a run with
-  `run_at`"). When a type imposes the requirement, make the type the subject
-  ("`SubprocessParams` and `ShellParams` require `timeout`").
-- Use the simple present for a general behaviour, a kind or a standing fact ("a
-  job that waits for a signal wakes at the signal"). Use the progressive or a
-  participle for the state of a particular instance at a time ("the id of the
-  job waiting for zero"). Write "will" for a planned action or a decision about
-  a future action ("the maintainer will remove the flag in the next release").
-  Use the present perfect for a state that a past event produced ("the writer
-  has released the lock") and the past for a dated event ("the store was
-  compacted on 2026-09-03").
-- Give a rejected design one counterfactual sentence, or a sentence that states
-  what the design prevents ("The lock prevents two writers from overwriting each
-  other"). Write a longer description of that design in the present tense.
-- Do not write an "-ing" clause after a comma (", leaving a key that looks
-  untouched"). Write a sentence with a subject.
-- In procedural text, put a condition before the instruction it applies to, with
-  a comma. In descriptive prose, put the condition where the emphasis belongs.
-- Write complete grammar without contractions.
-- Do not use a pronoun to stand for a type, a value or a record ("every builder
-  takes one", "the field is one", "compares with one"). Name the type or the
-  value, or restate the relation ("the parameter type of every builder").
-- Do not write an "X is what does Y" cleft. State the fact ("the order makes the
-  write safe"). For emphasis, write "It is the order that makes the write safe".
-- Do not write a possessive predicate that files items under a subject ("`A`,
-  `B` and `C` are its errors", "`X` is its handle"). Name the relation: "It
-  fails with `A`, `B` or `C`", "It exposes `X`".
-- Do not write a clause that spells out what a caller can therefore do ("is
-  sorted, so a caller can binary-search it").
-- Use plain negation in place of a verb plus "no", "nothing" or "none". Write
-  "does not include an expiry", never "includes no expiry", and "do not share a
-  key", never "share no key". Existential and subject-position negation is
-  correct ("there is no such record", "no task observes it"), and so is "no
-  longer".
-- Do not write an "X, not Y" contrast, "rather than" or "instead of". State the
-  property positively. Keep a terse structural contrast that is itself the
-  content ("embedded, not operated").
+- **Sentence length.** Write at most 25 words in a sentence of descriptive prose
+  and 20 in procedural prose. Count an identifier or a backticked name as one
+  word.
+- **Paragraph length.** Write at most six sentences in a paragraph and one topic
+  per paragraph, with two to four sentences in a book or a README. Split a
+  longer paragraph at its topic change.
+- **Active voice.** Use the active voice by default, with the component named as
+  the actor ("the cache evicts the entry"). In descriptive prose a passive is
+  correct when its subject is the paragraph's topic and the actor is named in
+  the paragraph. In a paragraph about the entry, "the entry is evicted by the
+  cache" is correct. Do not give a task, worker or code path a person-like verb.
+- **No reader address.** Do not address the reader as "you".
+- **No action verb for a setting.** Do not give a parameter, a limit or a
+  setting an action verb. Make the component that applies the value the actor:
+  "the operator kills the program".
+- **Verb over copula.** Use a verb, never a copula that equates two noun
+  phrases: "the invoice is issued at the deadline", never "the issue time is the
+  deadline".
+- **No classifying predicate.** Do not write a classifying predicate that files
+  a subject under a noun with a relative clause ("is a state that", "is a case
+  where"). Name the actor and state the fact with a verb: "the runtime does not
+  write a pointer without its job", never "a pointer without its job is a state
+  that no runtime write produces".
+- **Must and should.** State a requirement with "must", "require" or "will need
+  to" and a recommendation with "should". Never state an action that the reader
+  takes with a plain present verb ("a caller sets `timeout`", "a sender delays a
+  run with `run_at`"). When a type imposes the requirement, make the type the
+  subject ("`SubprocessParams` and `ShellParams` require `timeout`").
+- **Tense and aspect.** Use the simple present for a general behaviour, a kind
+  or a standing fact ("a job that waits for a signal wakes at the signal"). Use
+  the progressive or a participle for the state of a particular instance at a
+  time ("the id of the job waiting for zero"). Write "will" for a planned action
+  or a decision about a future action ("the maintainer will remove the flag in
+  the next release"). Use the present perfect for a state that a past event
+  produced ("the writer has released the lock") and the past for a dated event
+  ("the store was compacted on 2026-09-03").
+- **Rejected design.** Give a rejected design one counterfactual sentence, or a
+  sentence that states what the design prevents ("The lock prevents two writers
+  from overwriting each other"). Write a longer description of that design in
+  the present tense.
+- **No "ing" clause after a comma.** Do not write an "-ing" clause after a comma
+  (", leaving a key that looks untouched"). Write a sentence with a subject.
+- **Condition first.** In procedural text, put a condition before the
+  instruction it applies to, with a comma. In descriptive prose, put the
+  condition where the emphasis belongs.
+- **Complete grammar.** Write complete grammar without contractions.
+- **No pronoun for a type.** Do not use a pronoun to stand for a type, a value
+  or a record ("every builder takes one", "the field is one", "compares with
+  one"). Name the type or the value, or restate the relation ("the parameter
+  type of every builder").
+- **No cleft.** Do not write an "X is what does Y" cleft. State the fact ("the
+  order makes the write safe"). For emphasis, write "It is the order that makes
+  the write safe".
+- **No possessive predicate.** Do not write a possessive predicate that files
+  items under a subject ("`A`, `B` and `C` are its errors", "`X` is its
+  handle"). Name the relation: "It fails with `A`, `B` or `C`", "It exposes
+  `X`".
+- **No caller consequence.** Do not write a clause that spells out what a caller
+  can therefore do ("is sorted, so a caller can binary-search it").
+- **Plain negation.** Use plain negation in place of a verb plus "no", "nothing"
+  or "none". Write "does not include an expiry", never "includes no expiry", and
+  "do not share a key", never "share no key". Existential and subject-position
+  negation is correct ("there is no such record", "no task observes it"), and so
+  is "no longer".
+- **No contrast.** Do not write an "X, not Y" contrast, "rather than" or
+  "instead of". State the property positively. Keep a terse structural contrast
+  that is itself the content ("embedded, not operated").
 
 ## Punctuation, spelling and formatting
 
-- Do not use em-dashes or semicolons. Use a colon, a comma, parentheses or two
-  sentences.
-- Do not use a serial comma, in "and" lists and "or" lists alike: "A, B and C",
-  "X, Y or Z". Keep a comma that joins two independent clauses and the comma in
-  a two-item construction. The only exception is a list whose meaning is
-  ambiguous without it.
-- Do not use Latin abbreviations. Write "for example" or "that is", or list the
-  items.
-- Use British spelling in prose (behaviour, amortises, favour, catalogue). Keep
-  the spelling of a term taken from an API or a format (serialize). Write "lower
-  case" and "upper case" as two words for a noun and hyphenated before a noun
-  (lower-case letters).
-- Write "ad hoc" as two words and the phrasal verb as "opt in", so "opts in to".
-  Write "Signaller" with two l's.
-- Use bold only as the lead-in of a list item or a paragraph that states a rule
-  or an invariant. Do not use emoji.
-- Use a vertical list for three or more parallel items. Give it a colon on the
-  lead-in and an upper-case start. Do not nest a list in it, and never mix facts
-  and instructions in it. Turn three or more parallel statements in prose into a
-  list. Turn a bullet that runs to several sentences into a subheading with a
-  short paragraph.
-- Write a heading as a short phrase.
-- In a warning, state the command or the condition first and the risk second.
-- Never reword code, identifiers, commands, flags, file paths, quoted error text
-  or product names.
-- Wrap prose and comment lines at 80 columns. After an edit inside a wrapped
-  paragraph, rewrap the paragraph.
+- **No em-dashes and no semicolons.** Do not use em-dashes or semicolons. Use a
+  colon, a comma, parentheses or two sentences.
+- **No serial comma.** Do not use a serial comma, in "and" lists and "or" lists
+  alike: "A, B and C", "X, Y or Z". Keep a comma that joins two independent
+  clauses and the comma in a two-item construction. The only exception is a list
+  whose meaning is ambiguous without it.
+- **No Latin abbreviations.** Do not use Latin abbreviations. Write "for
+  example" or "that is", or list the items.
+- **British spelling.** Use British spelling in prose (behaviour, amortises,
+  favour, catalogue). Keep the spelling of a term taken from an API or a format
+  (serialize). Write "lower case" and "upper case" as two words for a noun and
+  hyphenated before a noun (lower-case letters).
+- **Ad hoc and opt in.** Write "ad hoc" as two words and the phrasal verb as
+  "opt in", so "opts in to". Write "Signaller" with two l's.
+- **Bold and emoji.** Use bold only as the lead-in of a list item or a paragraph
+  that states a rule or an invariant. Do not use emoji.
+- **Vertical lists.** Use a vertical list for three or more parallel items. Give
+  it a colon on the lead-in and an upper-case start. Do not nest a list in it,
+  and never mix facts and instructions in it. Turn three or more parallel
+  statements in prose into a list. Turn a bullet that runs to several sentences
+  into a subheading with a short paragraph.
+- **Short headings.** Write a heading as a short phrase.
+- **Warning order.** In a warning, state the command or the condition first and
+  the risk second.
+- **No rewording of code.** Never reword code, identifiers, commands, flags,
+  file paths, quoted error text or product names.
+- **Line wrap.** Wrap prose and comment lines at 80 columns. After an edit
+  inside a wrapped paragraph, rewrap the paragraph.
 
 ## Vocabulary
 
-Use one term per concept across a document: do not alternate between check,
-verify and confirm or between config and settings. Break a noun chain over three
-words with a preposition.
+- **One term per concept.** Use one term per concept across a document: do not
+  alternate between check, verify and confirm or between config and settings.
+- **Noun chains.** Break a noun chain over three words with a preposition.
 
 Avoid, and write instead:
 
@@ -314,4 +327,4 @@ Avoid, and write instead:
 - Delete outright: simply, easily, seamlessly, robust, powerful, comprehensive,
   performant, in conclusion, in summary, it is worth noting, grab, spin up,
   baked in, chew through, thundering herd, tapestry, testament, synergy
-- Delete outright: just, glue
+- just, glue: delete outright
