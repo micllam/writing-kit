@@ -38,3 +38,6 @@ The worker reads each stored field of the record and then writes the result.
 ``a `tick` b`` is a span that holds a backtick.
 
 The span ``one `two` three `four` five `six` seven `eight` nine`` holds backticks.
+
+The handler notes "the worker reads the record and then returns the value of
+`X`" to the caller.

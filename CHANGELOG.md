@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   commit subject, its article and the form of a rejected alternative once each.
   The rules stay the same, and the prose of a project passes as before.
 
+### Fixed
+
+- `Micllam.WrapMarkdown` and `Micllam.WrapComments` count a quote after a code
+  span or a link as part of the first word of the next line, so a line without
+  room for that word passes. The prose of a project stays as it is.
+
 ## [0.5.0] - 2026-10-30
 
 ### Changed
