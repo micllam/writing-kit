@@ -27,7 +27,8 @@ that the package does not check.
   (what a record no longer includes).
 - Cross-reference only when the reader needs the link. A method on the same type
   is discoverable without a pointer. In a pointer, identify its target or write
-  "that follows", never "above" or "below".
+  "that follows".
+- Do not point with "above" or "below".
 - Define a concept term at its first use, in under ten words, one definition per
   sentence. Do not define product names, standard names (Postgres, S3, HTTP) or
   the project the document is about.
@@ -52,27 +53,26 @@ that the package does not check.
 - Write an unreleased entry relative to the last released version. Fold a fix to
   an unreleased feature into that feature's entry. A type that never shipped
   does not break anything, so do not write an entry for it.
-- Put blank lines around headings only, never between bullets. Do not repair the
-  entries of released versions, which are historical records.
+- Put blank lines around headings only, never between bullets.
 - Append a new entry at the end of its section's list, so that a section reads
   in the order of the changes.
+- Do not repair the entries of released versions, which are historical records.
 
 ## Commit messages
 
 - Write the subject in the repository's style. Without an established style,
   write the subject as `area: summary` in the imperative, in lower case after
-  the prefix and without a full stop. Keep it under 50 characters where possible
-  and never over 72.
+  the prefix. Keep it under 50 characters where possible.
+- End the subject without a full stop, and separate it from the body with a
+  blank line.
 - In every repository, omit "the" from the subject ("readme: drop rule count").
   Keep the articles of the body.
 - In the body, state only what the diff does not show: the reason, a rejected
-  alternative or a non-obvious consequence. Do not describe how the new code
-  works or narrate the work that led to the change.
-- Start a rejected alternative with "Rejected:", identify the design and state
-  its problem in one sentence ("Rejected: KV keys for the records. A staged
-  write would have become visible only at settlement").
-- Separate the subject from the body with a blank line, and keep every line of
-  the message within 72 columns.
+  alternative or a non-obvious consequence. Start a rejected alternative with
+  "Rejected:" and identify the design ("Rejected: KV keys for the records. A
+  staged write would have become visible only at settlement"). Do not describe
+  how the new code works or narrate the work that led to the change.
+- Keep every line of the message within 72 columns.
 
 ## Sentences
 
@@ -85,10 +85,10 @@ that the package does not check.
   cache evicts the entry"). In descriptive prose a passive is correct when its
   subject is the paragraph's topic and the actor is named in the paragraph. In a
   paragraph about the entry, "the entry is evicted by the cache" is correct. Do
-  not address the reader as "you" and do not give a task, worker or code path a
-  person-like verb. Do not give a parameter, a limit or a setting an action
-  verb. Make the component that applies the value the actor ("the operator kills
-  the program").
+  not give a task, worker or code path a person-like verb.
+- Do not address the reader as "you".
+- Do not give a parameter, a limit or a setting an action verb. Make the
+  component that applies the value the actor: "the operator kills the program".
 - Use a verb, never a copula that equates two noun phrases: "the invoice is
   issued at the deadline", never "the issue time is the deadline".
 - Do not write a classifying predicate that files a subject under a noun with a
@@ -116,8 +116,7 @@ that the package does not check.
   untouched"). Write a sentence with a subject.
 - In procedural text, put a condition before the instruction it applies to, with
   a comma. In descriptive prose, put the condition where the emphasis belongs.
-- Write complete grammar without contractions, and keep articles outside a
-  commit subject.
+- Write complete grammar without contractions.
 - Do not use a pronoun to stand for a type, a value or a record ("every builder
   takes one", "the field is one", "compares with one"). Name the type or the
   value, or restate the relation ("the parameter type of every builder").
@@ -190,7 +189,8 @@ Avoid, and write instead:
   compound (feature gate) is standard
 - since (meaning because): because. however: but. therefore: sparingly
 - need to, have to: an imperative, "it is necessary to" or "will need to"
-- strand, out from under, when in doubt: state the literal effect or condition
+- strand: state the literal effect or condition
+- out from under, when in doubt: state the literal effect or condition
 - drive, drives, driven, driving (of a loop, a test, time or a scenario): runs,
   advances, sends, or state the action
 - dies with: terminates when. wiped, cleans: removes
@@ -223,9 +223,12 @@ Avoid, and write instead:
 - dead (of configuration, code, a value or an arm, as a metaphor): unreachable,
   unused, without effect, or state what it does not apply to. The dead-letter
   sense (a dead job, the dead set) stays
-- cheap, expensive, keeps X cheap, costs X, pay a cost, tax (of an operation, a
-  loss, a choice or a design): state the literal cost (a count of reads, writes,
-  scans or lock acquisitions) or identify the operation or what is avoided
+- cheap, expensive, keeps X cheap (of an operation, a loss, a choice or a
+  design): state the literal cost (a count of reads, writes, scans or lock
+  acquisitions)
+- costs X, pay a cost, tax (of an operation, a loss, a choice or a design):
+  state the literal cost (a count of reads, writes, scans or lock acquisitions)
+  or identify the operation or what is avoided
 - hot path: name the path
 - load-bearing (of a link, a sentence or a decision): necessary, or state what
   depends on it
@@ -290,8 +293,10 @@ Avoid, and write instead:
 - the one writer, its one writer (of a record, a store or a key): the only
   writer. "One writer" as a count ("one process, one writer") stays
 - make sense when: are warranted when. addresses the issue: corrects the fault
-- cliff: sharp degradation. floor: lower bound. envelope: range, profile
-- collapse (of a metric): fall. flat out: as fast as possible
+- cliff: sharp degradation
+- floor: lower bound. envelope: range, profile
+- collapse (of a metric): fall
+- flat out: as fast as possible
 - knob: parameter
 - cold, warm (of a cache): state the literal property
 - bag: collection. nobody: no task. stampede: contend on
@@ -306,7 +311,7 @@ Avoid, and write instead:
 - foster, empower, bolster: help, support, let. furthermore, moreover: also
 - meticulous: careful. holistic: full. paradigm: model. intricate: complex
 - gracefully handles, blazingly fast: state what it does, or give the number
-- Delete outright: simply, just, easily, seamlessly, robust, powerful,
-  comprehensive, performant, in conclusion, in summary, it is worth noting,
-  grab, spin up, baked in, chew through, glue, thundering herd, tapestry,
-  testament, synergy
+- Delete outright: simply, easily, seamlessly, robust, powerful, comprehensive,
+  performant, in conclusion, in summary, it is worth noting, grab, spin up,
+  baked in, chew through, thundering herd, tapestry, testament, synergy
+- Delete outright: just, glue

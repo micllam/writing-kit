@@ -46,21 +46,21 @@ lead-in of each rule matches its key in `coverage/`.
   entry. A type that never shipped does not break anything, so do not write an
   entry for it.
 - **Append at end.** Append a new entry at the end of its section's list, so
-  that a section reads in the order of the changes. Do not repair the entries of
-  released versions, which are historical records.
+  that a section reads in the order of the changes.
+- **Released entries.** Do not repair the entries of released versions, which
+  are historical records.
 
 ## Commit messages
 
 - **Subject style.** Write the subject in the repository's style. Without an
   established style, write the subject as `area: summary` in the imperative, in
-  lower case after the prefix and without a full stop. Keep it under 50
-  characters where possible.
+  lower case after the prefix. Keep it under 50 characters where possible.
 - **Body content.** In the body, state only what the diff does not show: the
-  reason, a rejected alternative or a non-obvious consequence. Do not describe
-  how the new code works or narrate the work that led to the change. Start a
-  rejected alternative with "Rejected:", identify the design and state its
-  problem in one sentence ("Rejected: KV keys for the records. A staged write
-  would have become visible only at settlement").
+  reason, a rejected alternative or a non-obvious consequence. Start a rejected
+  alternative with "Rejected:" and identify the design ("Rejected: KV keys for
+  the records. A staged write would have become visible only at settlement"). Do
+  not describe how the new code works or narrate the work that led to the
+  change.
 
 ## Sentences
 

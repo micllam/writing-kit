@@ -4,8 +4,7 @@
 
 one-term-per-concept: false
 noun-chains: false
-holds-supplies-carries: true
-rides-in: true
+holds-supplies-carries-rides-in: true
 shape: true
 lands-on: true
 writes-the-store: true
@@ -18,10 +17,8 @@ need-to-have-to: true
 strand: false
 out-from-under-when-in-doubt: true
 drive: true
-dies-with-wiped: true
-cleans: true
-hand-rolled: true
-stand-up: true
+dies-with-wiped-cleans: true
+hand-rolled-stand-up: true
 hands-to: true
 mint: true
 under-a-key: true

@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The style states each rule in a bullet of its own, and states the length of a
+  commit subject, its article and the form of a rejected alternative once each.
+  The rules stay the same, and the prose of a project passes as before.
+
 ## [0.5.0] - 2026-10-30
 
 ### Changed
