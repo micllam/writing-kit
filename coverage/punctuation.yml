@@ -11,3 +11,4 @@ short-headings: false
 warning-order: false
 no-rewording-of-code: false
 line-wrap: true # WrapMarkdown.yml WrapComments.yml
+wide-spans: true # WrapMarkdown.yml WrapComments.yml

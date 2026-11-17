@@ -41,3 +41,23 @@ The span ``one `two` three `four` five `six` seven `eight` nine`` holds backtick
 
 The handler notes "the worker reads the record and then returns the value of
 `X`" to the caller.
+
+The worker reads the record, then calls [`Queue::complete_job_record`](crate::Queue::complete).
+
+The worker retries each failed task until the lease expires, and the queue then
+returns [`Error::CountWaitWithoutRunAtInFuture`](crate::error::Error::CountWaitWithoutRunAtInFuture).
+
+The worker retries each failed task until the lease expires, and the queue then
+returns
+[`Error::CountWaitWithoutRunAtInFuture`](crate::error::Error::CountWaitWithoutRunAtInFuture).
+
+The worker retries each failed task until the lease expires, and the queue then
+returns the [`Error::CountWaitWithoutRunAtInFuture`](crate::error::Error::CountWaitWithoutRunAtInFuture).
+
+The worker retries each failed task until the lease expires, and the queue then
+returns [`Error::CountWaitWithoutRunAtInFuture`](crate::error::Error::CountWaitWithoutRunAtInFuture) to it.
+
+- The worker retries each failed task until the lease expires, and the queue
+  returns [`Error::CountWaitWithoutRunAtInFuture`](crate::error::Error::CountWaitWithoutRunAtInFuture).
+
+See <https://example.com/a/very/long/path/to/a/document/that/does/not/fit/on/a/line.html>.

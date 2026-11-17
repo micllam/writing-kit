@@ -1,7 +1,11 @@
 mode := "comment"
-// Reports prose lines over 80 columns and ragged lines: lines with room for
-// the first word of the next line of their paragraph. The variable `mode`
-// selects Markdown prose ("md") or source comments ("comment").
+// Reports prose lines over 80 columns, ragged lines (lines with room for the
+// first word of the next line of their paragraph) and a single word on the
+// line before a wide span. A span is a link, a code span or a URL, and a wide
+// span does not fit on a line of its own. A line with a wide span passes 80
+// columns when the span, its trailing punctuation and at most the word before
+// it fill the line. The variable `mode` selects Markdown prose ("md") or source
+// comments ("comment").
 text := import("text")
 matches := []
 
@@ -11,16 +15,7 @@ width := func(s) { return len(text.re_replace("[^\\x00-\\x7F]", s, "x")) }
 strip := func(line) {
   return text.re_replace(`^[ \t]*(//[/!]?|#)? ?`, line, "")
 }
-longest_span := func(line) {
-  best := 0
-  found := text.re_find("``.+?``|`[^`]+`|\\[[^\\]]+\\](?:\\([^)]+\\)|\\[[^\\]]*\\])", line, -1)
-  if found == undefined { return 0 }
-  for m in found {
-    n := width(m[0].text)
-    if n > best { best = n }
-  }
-  return best
-}
+is_span := func(tok) { return text.re_match("^[(<]?(`|\\[|https?://)", tok) }
 first_token := func(t) {
   m := text.re_find("^\\(?\\[[^\\]]+\\](\\([^)]+\\)|\\[[^\\]]*\\])[).,;:\"']*", t, 1)
   if m == undefined { m = text.re_find("^\\(?``.+?``[).,;:\"']*", t, 1) }
@@ -28,6 +23,18 @@ first_token := func(t) {
   if m == undefined { m = text.re_find(`^[^ ]+`, t, 1) }
   if m == undefined { return "" }
   return m[0][0].text
+}
+// Whether `rest` is a wide span with its trailing punctuation, or a word and
+// such a span. `indent` is the width before `rest` on its line.
+wide_span_line := func(rest, indent) {
+  tok := first_token(rest)
+  if tok != rest {
+    word := text.re_find(`^[^ ]+ `, rest, 1)
+    if word == undefined { return false }
+    rest = rest[len(word[0][0].text):]
+    tok = first_token(rest)
+  }
+  return tok == rest && is_span(tok) && indent + width(tok) > 80
 }
 
 fence := false
@@ -67,10 +74,15 @@ for i, line in lines {
   prose := is_prose(i, line)
   t := strip(line)
   cols := width(line)
-  if prose && cols > 80 && !text.re_match(`https?://`, t) && longest_span(t) < 42 {
+  rest := text.re_replace(`^([-*+]|[0-9]+\.) `, t, "")
+  indent := cols - width(rest)
+  if prose && cols > 80 && !wide_span_line(rest, indent) {
     matches = append(matches, {begin: offset, end: offset + len(line), message: "Line over 80 columns"})
   }
   tok := first_token(t)
+  if prose && prev_prose && text.re_match(`^[^ ]+$`, prev_text) && is_span(tok) && cols - width(t) + width(tok) > 80 {
+    matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Single word before a wide span: join it to the span"})
+  }
   if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev_len + 1 + width(tok) <= 80 {
     matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Ragged line: room for the next line's first word"})
   }

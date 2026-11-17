@@ -6,3 +6,8 @@ test.md:21:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first wo
 test.md:25:1:Micllam.WrapMarkdown:Line over 80 columns
 test.md:27:1:Micllam.WrapMarkdown:Ragged line: room for the next line's first word
 test.md:35:1:Micllam.WrapMarkdown:Line over 80 columns
+test.md:40:1:Micllam.WrapMarkdown:Line over 80 columns
+test.md:45:1:Micllam.WrapMarkdown:Line over 80 columns
+test.md:51:1:Micllam.WrapMarkdown:Single word before a wide span: join it to the span
+test.md:55:1:Micllam.WrapMarkdown:Line over 80 columns
+test.md:58:1:Micllam.WrapMarkdown:Line over 80 columns

@@ -50,3 +50,15 @@ pub fn n() {}
 /// The worker reads each stored field of the record and then writes it.
 /// ``a `tick` b`` is a span that holds a backtick.
 pub fn o() {}
+
+/// The worker reads the record, then calls [`Queue::complete`](crate::Queue::complete).
+pub fn p() {}
+
+/// The worker retries each failed task until the lease expires, and the queue
+/// returns [`Error::CountWaitWithoutRunAt`](crate::error::Error::CountWaitWithoutRunAt).
+pub fn q() {}
+
+/// The worker retries each failed task until the lease expires, and the queue
+/// returns
+/// [`Error::CountWaitWithoutRunAt`](crate::error::Error::CountWaitWithoutRunAt).
+pub fn r() {}

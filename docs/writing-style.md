@@ -178,6 +178,9 @@ that the package does not check.
   file paths, quoted error text or product names.
 - **Line wrap.** Wrap prose and comment lines at 80 columns. After an edit
   inside a wrapped paragraph, rewrap the paragraph.
+- **Wide spans.** When a link, a code span or a URL does not fit on a line of
+  its own, take its line past 80 columns with its trailing punctuation and at
+  most the word before it.
 
 ## Vocabulary
 

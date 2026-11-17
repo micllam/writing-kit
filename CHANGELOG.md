@@ -4,7 +4,8 @@ All notable changes to the `Micllam` Vale package will be documented in this
 file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -16,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   passes as before.
 - The agent guide states each unchecked rule in the words and with the examples
   of the style. An agent that loads the guide reads the same rules as before.
+- `Micllam.WrapMarkdown` and `Micllam.WrapComments` exempt a line over 80
+  columns only when its link, code span or URL does not fit on a line of its
+  own. A line that passed with a URL or a span of 42 columns or more must wrap
+  at 80 columns.
 
 ### Fixed
 

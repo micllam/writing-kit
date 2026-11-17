@@ -3,3 +3,5 @@ test.rs:6:1:Micllam.WrapComments:Ragged line: room for the next line's first wor
 test.rs:30:1:Micllam.WrapComments:Line over 80 columns
 test.rs:37:1:Micllam.WrapComments:Ragged line: room for the next line's first word
 test.rs:47:1:Micllam.WrapComments:Line over 80 columns
+test.rs:54:1:Micllam.WrapComments:Line over 80 columns
+test.rs:62:1:Micllam.WrapComments:Single word before a wide span: join it to the span
