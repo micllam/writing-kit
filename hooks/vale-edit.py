@@ -37,7 +37,7 @@ def main():
     root = project_root(path.parent)
     result = subprocess.run(
         [CHECK, str(path.relative_to(root))], cwd=root, capture_output=True,
-        text=True,
+        text=True, check=False,
     )
 
     messages = []

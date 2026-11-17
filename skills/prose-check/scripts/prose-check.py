@@ -43,7 +43,7 @@ def main():
     result = subprocess.run(
         ["vale", *config_args(), "--output=line", "--no-exit", "--no-global",
          *paths],
-        stdout=subprocess.PIPE, text=True,
+        stdout=subprocess.PIPE, text=True, check=False,
     )
     alerts = [line for line in result.stdout.splitlines() if line]
     for alert in alerts:

@@ -72,7 +72,7 @@ class PackageTest(unittest.TestCase):
         result = subprocess.run(
             ["vale", "--output=line", "--sort", "--no-global", "--no-exit",
              *args],
-            cwd=self.project, capture_output=True, text=True,
+            cwd=self.project, capture_output=True, text=True, check=False,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         return result.stdout

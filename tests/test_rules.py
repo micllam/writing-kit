@@ -29,7 +29,8 @@ class RulesTest(unittest.TestCase):
                     f"{rule.stem} has no fixture",
                 )
                 result = subprocess.run(
-                    VALE, cwd=fixture, capture_output=True, text=True
+                    VALE, cwd=fixture, capture_output=True, text=True,
+                    check=False,
                 )
                 self.assertEqual(result.returncode, 0, result.stderr)
 

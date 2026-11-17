@@ -80,7 +80,7 @@ class PluginTest(unittest.TestCase):
     def test_wrapper_prints_alerts_and_exits_with_status_1(self):
         result = subprocess.run(
             [CHECK, *PROSE_FILES], cwd=self.project, capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         self.assertEqual(result.returncode, 1)
         self.assertEqual(
@@ -89,7 +89,8 @@ class PluginTest(unittest.TestCase):
 
     def test_wrapper_checks_the_files_in_a_named_folder(self):
         result = subprocess.run(
-            [CHECK, "."], cwd=self.project, capture_output=True, text=True
+            [CHECK, "."], cwd=self.project, capture_output=True, text=True,
+            check=False,
         )
         self.assertEqual(result.returncode, 1, result.stderr)
         self.assertEqual(
@@ -103,7 +104,7 @@ class PluginTest(unittest.TestCase):
         )
         result = subprocess.run(
             [CHECK, "probe.c"], cwd=self.project, capture_output=True,
-            text=True,
+            text=True, check=False,
         )
         self.assertEqual(result.returncode, 1, result.stderr)
         self.assertRegex(
@@ -113,7 +114,8 @@ class PluginTest(unittest.TestCase):
     def test_wrapper_exits_with_status_2_without_a_path_or_on_vale_error(self):
         with self.subTest(failure="no path"):
             result = subprocess.run(
-                [CHECK], cwd=self.project, capture_output=True, text=True
+                [CHECK], cwd=self.project, capture_output=True, text=True,
+                check=False,
             )
             self.assertEqual(result.returncode, 2, result.stderr)
             self.assertIn("usage: prose-check.py PATH...", result.stderr)
@@ -124,6 +126,6 @@ class PluginTest(unittest.TestCase):
             )
             result = subprocess.run(
                 [CHECK, "notes.md"], cwd=self.project, capture_output=True,
-                text=True,
+                text=True, check=False,
             )
             self.assertEqual(result.returncode, 2, result.stderr)
