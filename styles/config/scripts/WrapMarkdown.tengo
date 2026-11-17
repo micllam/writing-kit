@@ -69,31 +69,24 @@ is_prose := mode == "comment" ? comment_prose : markdown_prose
 
 lines := text.split(scope, "\n")
 offset := 0
-prev_prose := false
-prev_len := 0
-prev_text := ""
-prev_off := 0
-prev_bytes := 0
+prev := {prose: false, cols: 0, text: "", begin: 0, end: 0}
 for i, line in lines {
   prose := is_prose(i, line)
   t := strip(line)
   cols := width(line)
   rest := text.re_replace(`^([-*+]|[0-9]+\.) `, t, "")
-  indent := cols - width(rest)
-  if prose && cols > limit && !wide_span_line(rest, indent) {
+  if prose && cols > limit && !wide_span_line(rest, cols - width(rest)) {
     matches = append(matches, {begin: offset, end: offset + len(line), message: "Line over " + limit + " columns"})
   }
-  tok := first_token(t)
-  if prose && prev_prose && text.re_match(`^[^ ]+$`, prev_text) && tok.span && cols - width(t) + width(tok.text) > limit {
-    matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Single word before a wide span: join it to the span"})
+  if prose && prev.prose {
+    tok := first_token(t)
+    if text.re_match(`^[^ ]+$`, prev.text) && tok.span && cols - width(t) + width(tok.text) > limit {
+      matches = append(matches, {begin: prev.begin, end: prev.end, message: "Single word before a wide span: join it to the span"})
+    }
+    if !text.has_suffix(prev.text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev.cols + 1 + width(tok.text) <= limit {
+      matches = append(matches, {begin: prev.begin, end: prev.end, message: "Ragged line: room for the next line's first word"})
+    }
   }
-  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev_len + 1 + width(tok.text) <= limit {
-    matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Ragged line: room for the next line's first word"})
-  }
-  prev_prose = prose && t != ""
-  prev_len = cols
-  prev_text = t
-  prev_off = offset
-  prev_bytes = len(line)
+  prev = {prose: prose && t != "", cols: cols, text: t, begin: offset, end: offset + len(line)}
   offset += len(line) + 1
 }
