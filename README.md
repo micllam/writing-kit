@@ -85,7 +85,8 @@ The hook of the plugin checks each edited file and returns the alerts with the
 result of the edit. The skill `prose-check` runs the same check on named files,
 as a final pass before the work is done. Both use the `.vale.ini` of the
 project, or the configuration of this repository for a project without a
-`.vale.ini`.
+`.vale.ini`. The script `wrap.py` of the skill rewraps the prose of named files
+to the wrap rules, in place.
 
 ## Contributing
 

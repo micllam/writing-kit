@@ -9,6 +9,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- The skill `prose-check` of the plugin has the script `wrap.py`, which rewraps
+  the prose of named files to the wrap rules in place. An agent should run it
+  after a wrap alert, in place of a rewrap by hand.
+
 ### Changed
 
 - The style states each rule in a bullet of its own with a bold lead-in, and

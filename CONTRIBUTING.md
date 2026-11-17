@@ -21,7 +21,7 @@
 | [`tests/`](tests/) | The tests of the rules, the package and the plugin |
 | [`ruff.toml`](ruff.toml) | The Ruff configuration of the Python code |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | The manifest of the Claude Code plugin |
-| [`skills/prose-check/`](skills/prose-check/) | The skill of the plugin, with the script that runs the package in its `scripts/` |
+| [`skills/prose-check/`](skills/prose-check/) | The skill of the plugin, with the script that runs the package and the wrap formatter in its `scripts/` |
 | [`hooks/`](hooks/) | The edit hook of the plugin and its `hooks.json` |
 
 ## Coverage

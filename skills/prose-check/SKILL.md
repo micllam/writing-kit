@@ -19,6 +19,13 @@ For every alert, apply the rule of the style that the alert links to. An alert
 stays where the rule permits it, such as a quoted excluded word or a
 counterfactual with a stated condition.
 
+After an alert of `WrapMarkdown`, `WrapComments` or `CommitWrap`, rewrap the
+file with the formatter, then check it again:
+
+```bash
+${CLAUDE_SKILL_DIR}/scripts/wrap.py FILE...    # rewraps the prose in place
+```
+
 After a clean check, read each new paragraph against the Content section of the
 agent guide, which the package does not check. Check the three longest new
 sentences against the length limits, and check that each new comment is
