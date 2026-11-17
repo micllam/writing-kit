@@ -22,8 +22,13 @@ def main():
         return 2
     ref = os.environ.get("PACKAGE_REF", "master")
     output = Path(sys.argv[1])
-    paths = [REPO / ".vale.ini", REPO / "meta.json", REPO / "styles",
-             *sorted((REPO / "styles").rglob("*")), REPO / "LICENSE"]
+    paths = [
+        REPO / ".vale.ini",
+        REPO / "meta.json",
+        REPO / "styles",
+        *sorted((REPO / "styles").rglob("*")),
+        REPO / "LICENSE",
+    ]
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as archive:
@@ -34,8 +39,11 @@ def main():
                 rule = path.read_text().replace(
                     "/blob/master/docs/", f"/blob/{ref}/docs/"
                 )
-                archive.writestr(zipfile.ZipInfo.from_file(path, name), rule,
-                                 zipfile.ZIP_DEFLATED)
+                archive.writestr(
+                    zipfile.ZipInfo.from_file(path, name),
+                    rule,
+                    zipfile.ZIP_DEFLATED,
+                )
             else:
                 archive.write(path, name)
     return 0

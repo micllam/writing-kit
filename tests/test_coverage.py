@@ -38,7 +38,8 @@ class CoverageTest(unittest.TestCase):
         for place, key, value in entries():
             with self.subTest(place=place):
                 self.assertIn(
-                    value, ("true", "false"),
+                    value,
+                    ("true", "false"),
                     f"{place}: {key} does not have the value true or false",
                 )
 
@@ -63,6 +64,7 @@ class CoverageTest(unittest.TestCase):
     def test_agent_guide_is_generated_from_the_style(self):
         expected = guide.guide(guide.STYLE.read_text(), guide.manifests())
         self.assertEqual(
-            guide.GUIDE.read_text(), expected,
+            guide.GUIDE.read_text(),
+            expected,
             "docs/agent-guide.md differs from the output of scripts/guide.py",
         )

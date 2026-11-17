@@ -71,8 +71,10 @@ def blocks(text):
             sections[-1][1][-1].append(line)
         else:
             sections[-1][1].append([line])
-    return [(title, [block for block in found if block])
-            for title, found in sections]
+    return [
+        (title, [block for block in found if block])
+        for title, found in sections
+    ]
 
 
 def mismatches(style, coverage):

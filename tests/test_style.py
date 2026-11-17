@@ -24,7 +24,8 @@ class StyleTest(unittest.TestCase):
                     link, f"{rule.name} has no link to docs/writing-style.md"
                 )
                 self.assertIn(
-                    link[1], sections,
+                    link[1],
+                    sections,
                     f"{rule.name} links to #{link[1]}, which is not a section "
                     "of docs/writing-style.md",
                 )

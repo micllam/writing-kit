@@ -12,8 +12,13 @@ import subprocess
 import sys
 from pathlib import Path
 
-CHECK = (Path(__file__).resolve().parents[1]
-         / "skills" / "prose-check" / "scripts" / "prose-check.py")
+CHECK = (
+    Path(__file__).resolve().parents[1]
+    / "skills"
+    / "prose-check"
+    / "scripts"
+    / "prose-check.py"
+)
 
 
 def project_root(directory):
@@ -36,8 +41,11 @@ def main():
     path = path.parent.resolve() / path.name
     root = project_root(path.parent)
     result = subprocess.run(
-        [CHECK, str(path.relative_to(root))], cwd=root, capture_output=True,
-        text=True, check=False,
+        [CHECK, str(path.relative_to(root))],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
     )
 
     messages = []

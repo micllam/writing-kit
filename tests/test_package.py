@@ -28,7 +28,8 @@ class ReadmeTest(unittest.TestCase):
         version = meta["vale_version"].removeprefix(">=")
         self.assertIn(f"Vale {version} or later", self.readme)
         self.assertIn(
-            f"    version: {version}", self.readme.splitlines(),
+            f"    version: {version}",
+            self.readme.splitlines(),
             "the CI example does not set the version",
         )
 
@@ -64,15 +65,26 @@ class PackageTest(unittest.TestCase):
             f"Packages = {package}\n"
         )
         subprocess.run(
-            ["vale", "--no-global", "sync"], cwd=cls.project, check=True,
+            ["vale", "--no-global", "sync"],
+            cwd=cls.project,
+            check=True,
             stdout=subprocess.DEVNULL,
         )
 
     def vale(self, *args):
         result = subprocess.run(
-            ["vale", "--output=line", "--sort", "--no-global", "--no-exit",
-             *args],
-            cwd=self.project, capture_output=True, text=True, check=False,
+            [
+                "vale",
+                "--output=line",
+                "--sort",
+                "--no-global",
+                "--no-exit",
+                *args,
+            ],
+            cwd=self.project,
+            capture_output=True,
+            text=True,
+            check=False,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         return result.stdout

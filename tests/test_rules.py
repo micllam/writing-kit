@@ -13,8 +13,14 @@ from tests.support import REPO, RULES, UPDATE
 # The hidden flags sort the alerts by file and make the paths relative to the
 # fixture folder.
 VALE = [
-    "vale", "--output=line", "--sort", "--normalize", "--relative",
-    "--no-global", "--no-exit", ".",
+    "vale",
+    "--output=line",
+    "--sort",
+    "--normalize",
+    "--relative",
+    "--no-global",
+    "--no-exit",
+    ".",
 ]
 
 
@@ -29,7 +35,10 @@ class RulesTest(unittest.TestCase):
                     f"{rule.stem} has no fixture",
                 )
                 result = subprocess.run(
-                    VALE, cwd=fixture, capture_output=True, text=True,
+                    VALE,
+                    cwd=fixture,
+                    capture_output=True,
+                    text=True,
                     check=False,
                 )
                 self.assertEqual(result.returncode, 0, result.stderr)

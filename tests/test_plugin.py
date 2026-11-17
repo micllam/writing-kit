@@ -44,7 +44,10 @@ class PluginTest(unittest.TestCase):
         and returns its output."""
         event = {"tool_input": {"file_path": str(self.project / file)}}
         result = subprocess.run(
-            [HOOK], input=json.dumps(event), capture_output=True, text=True,
+            [HOOK],
+            input=json.dumps(event),
+            capture_output=True,
+            text=True,
             check=True,
         )
         return result.stdout
@@ -79,8 +82,11 @@ class PluginTest(unittest.TestCase):
 
     def test_wrapper_prints_alerts_and_exits_with_status_1(self):
         result = subprocess.run(
-            [CHECK, *PROSE_FILES], cwd=self.project, capture_output=True,
-            text=True, check=False,
+            [CHECK, *PROSE_FILES],
+            cwd=self.project,
+            capture_output=True,
+            text=True,
+            check=False,
         )
         self.assertEqual(result.returncode, 1)
         self.assertEqual(
@@ -89,7 +95,10 @@ class PluginTest(unittest.TestCase):
 
     def test_wrapper_checks_the_files_in_a_named_folder(self):
         result = subprocess.run(
-            [CHECK, "."], cwd=self.project, capture_output=True, text=True,
+            [CHECK, "."],
+            cwd=self.project,
+            capture_output=True,
+            text=True,
             check=False,
         )
         self.assertEqual(result.returncode, 1, result.stderr)
@@ -103,8 +112,11 @@ class PluginTest(unittest.TestCase):
             "StylesPath = styles\n\n[*.c]\nBasedOnStyles = Micllam\n"
         )
         result = subprocess.run(
-            [CHECK, "probe.c"], cwd=self.project, capture_output=True,
-            text=True, check=False,
+            [CHECK, "probe.c"],
+            cwd=self.project,
+            capture_output=True,
+            text=True,
+            check=False,
         )
         self.assertEqual(result.returncode, 1, result.stderr)
         self.assertRegex(
@@ -114,7 +126,10 @@ class PluginTest(unittest.TestCase):
     def test_wrapper_exits_with_status_2_without_a_path_or_on_vale_error(self):
         with self.subTest(failure="no path"):
             result = subprocess.run(
-                [CHECK], cwd=self.project, capture_output=True, text=True,
+                [CHECK],
+                cwd=self.project,
+                capture_output=True,
+                text=True,
                 check=False,
             )
             self.assertEqual(result.returncode, 2, result.stderr)
@@ -125,7 +140,10 @@ class PluginTest(unittest.TestCase):
                 "StylesPath = styles\n\n[*.md]\nBasedOnStyles = Missing\n"
             )
             result = subprocess.run(
-                [CHECK, "notes.md"], cwd=self.project, capture_output=True,
-                text=True, check=False,
+                [CHECK, "notes.md"],
+                cwd=self.project,
+                capture_output=True,
+                text=True,
+                check=False,
             )
             self.assertEqual(result.returncode, 2, result.stderr)

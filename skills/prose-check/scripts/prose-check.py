@@ -41,9 +41,17 @@ def main():
         print(USAGE, file=sys.stderr)
         return 2
     result = subprocess.run(
-        ["vale", *config_args(), "--output=line", "--no-exit", "--no-global",
-         *paths],
-        stdout=subprocess.PIPE, text=True, check=False,
+        [
+            "vale",
+            *config_args(),
+            "--output=line",
+            "--no-exit",
+            "--no-global",
+            *paths,
+        ],
+        stdout=subprocess.PIPE,
+        text=True,
+        check=False,
     )
     alerts = [line for line in result.stdout.splitlines() if line]
     for alert in alerts:
