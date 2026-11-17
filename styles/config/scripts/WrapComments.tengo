@@ -16,43 +16,45 @@ width := func(s) { return len(text.re_replace("[^\\x00-\\x7F]", s, "x")) }
 strip := func(line) {
   return text.re_replace(`^[ \t]*(//[/!]?|#)? ?`, line, "")
 }
-is_span := func(tok) { return text.re_match("^[(<]?(`|\\[|https?://)", tok) }
+// The first token of `t` with its trailing punctuation, and whether it is a
+// span. The groups are non-capturing, because `re_find` fails when a group
+// does not match.
 first_token := func(t) {
-  m := text.re_find("^\\(?\\[[^\\]]+\\](\\([^)]+\\)|\\[[^\\]]*\\])[).,;:\"']*", t, 1)
-  if m == undefined { m = text.re_find("^\\(?``.+?``[).,;:\"']*", t, 1) }
-  if m == undefined { m = text.re_find("^\\(?`[^`]+`[).,;:\"']*", t, 1) }
-  if m == undefined { m = text.re_find(`^[^ ]+`, t, 1) }
-  if m == undefined { return "" }
-  return m[0][0].text
+  m := text.re_find("^\\(?(?:\\[[^\\]]+\\](?:\\([^)]+\\)|\\[[^\\]]*\\])|``.+?``|`[^`]+`|<?https?://[^ >]+>?)[).,;:\"']*", t, 1)
+  if m != undefined { return {text: m[0][0].text, span: true} }
+  m = text.re_find(`^[^ ]+`, t, 1)
+  if m == undefined { return {text: "", span: false} }
+  return {text: m[0][0].text, span: false}
 }
 // Whether `rest` is a wide span with its trailing punctuation, or a word and
 // such a span. `indent` is the width before `rest` on its line.
 wide_span_line := func(rest, indent) {
   tok := first_token(rest)
-  if tok != rest {
+  if tok.text != rest {
     word := text.re_find(`^[^ ]+ `, rest, 1)
     if word == undefined { return false }
     rest = rest[len(word[0][0].text):]
     tok = first_token(rest)
   }
-  return tok == rest && is_span(tok) && indent + width(tok) > limit
+  return tok.text == rest && tok.span && indent + width(tok.text) > limit
 }
 
 fence := false
 front := false
-is_prose := func(i, line) {
+comment_prose := func(i, line) {
   l := text.trim_left(line, " \t")
-  if mode == "comment" {
-    if !text.re_match(`^(//[/!]?|#)( |$)`, l) {
-      fence = false
-      return false
-    }
-    if text.re_match("^(//[/!]?|#) *```", l) {
-      fence = !fence
-      return false
-    }
-    return !fence && !text.re_match("^(//[/!]?|#) *(# |\\||\\[[^\\]]+\\]:|use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
+  if !text.re_match(`^(//[/!]?|#)( |$)`, l) {
+    fence = false
+    return false
   }
+  if text.re_match("^(//[/!]?|#) *```", l) {
+    fence = !fence
+    return false
+  }
+  return !fence && !text.re_match("^(//[/!]?|#) *(# |\\||\\[[^\\]]+\\]:|use |let |[#}]|\\.|[A-Za-z_]+::|[a-z_]+\\(|\\$|[A-Z][A-Z_]+ *=)", l)
+}
+markdown_prose := func(i, line) {
+  l := text.trim_left(line, " \t")
   if i == 0 && l == "---" {
     front = true
   } else if front && l == "---" {
@@ -63,6 +65,7 @@ is_prose := func(i, line) {
   if text.has_prefix(l, "```") { fence = !fence }
   return !fence && !text.re_match("^(\\||\\[[^\\]]+\\]:|```|[a-z-]+ = |$)", l)
 }
+is_prose := mode == "comment" ? comment_prose : markdown_prose
 
 lines := text.split(scope, "\n")
 offset := 0
@@ -81,10 +84,10 @@ for i, line in lines {
     matches = append(matches, {begin: offset, end: offset + len(line), message: "Line over " + limit + " columns"})
   }
   tok := first_token(t)
-  if prose && prev_prose && text.re_match(`^[^ ]+$`, prev_text) && is_span(tok) && cols - width(t) + width(tok) > limit {
+  if prose && prev_prose && text.re_match(`^[^ ]+$`, prev_text) && tok.span && cols - width(t) + width(tok.text) > limit {
     matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Single word before a wide span: join it to the span"})
   }
-  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev_len + 1 + width(tok) <= limit {
+  if prose && prev_prose && !text.has_suffix(prev_text, "  ") && text.re_match("^[A-Za-z`(\\[]", t) && prev_len + 1 + width(tok.text) <= limit {
     matches = append(matches, {begin: prev_off, end: prev_off + prev_bytes, message: "Ragged line: room for the next line's first word"})
   }
   prev_prose = prose && t != ""
