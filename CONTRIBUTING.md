@@ -19,6 +19,7 @@
 | [`scripts/package.py`](scripts/package.py) | The script that builds the package `Micllam.zip` |
 | [`scripts/guide.py`](scripts/guide.py) | The script that writes `docs/agent-guide.md` from the style and `coverage/` |
 | [`tests/`](tests/) | The tests of the rules, the package and the plugin |
+| [`ruff.toml`](ruff.toml) | The Ruff configuration of the Python code |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) | The manifest of the Claude Code plugin |
 | [`skills/prose-check/`](skills/prose-check/) | The skill of the plugin, with the script that runs the package in its `scripts/` |
 | [`hooks/`](hooks/) | The edit hook of the plugin and its `hooks.json` |
@@ -64,6 +65,16 @@ and `vale`. After a change to a rule or to `.vale.ini`, run the command with
 `.claude-plugin/plugin.json`, `hooks/hooks.json` or the layout of the plugin,
 run `claude plugin validate .` to check the manifests. Then start a session with
 `--plugin-dir` and check that Claude Code loads the skill and runs the hook.
+
+## Lint
+
+Before each commit, check the Python code with Ruff, which requires
+[uv](https://docs.astral.sh/uv/):
+
+```bash
+uvx ruff@0.17.4 format --check .
+uvx ruff@0.17.4 check .
+```
 
 ## Release
 
